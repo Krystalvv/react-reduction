@@ -20,6 +20,67 @@ import user12Image from 'assets/img/users/100_12.jpg';
 import user13Image from 'assets/img/users/100_13.jpg';
 import user14Image from 'assets/img/users/100_14.jpg';
 
+export const dashboardOrder = [
+  {
+    time: "9",
+    content: [{
+      id: 1,
+      type: 0,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    {
+      id: 2,
+      type: 0,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    {
+      id: 3,
+      type: 1,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    {
+      id: 4,
+      type: 0,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    {
+      id: 5,
+      type: 1,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    {
+      id: 6,
+      type: 0,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    ]
+  }
+];
+
 export const productsData = [
   {
     id: 1,

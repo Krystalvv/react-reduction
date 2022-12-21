@@ -1,33 +1,36 @@
 import React from 'react';
 import PropTypes from 'utils/propTypes';
 
-import { Media } from 'reactstrap';
+import { Media, Badge } from 'reactstrap';
 
 import Typography from 'components/Typography';
 
-const ProductMedia = ({ image, title, description, right, ...restProps }) => {
+import BubbleChat from 'assets/img/icons/bubble_chat.svg';
+
+const ProductMedia = ({ type, name, product, description, time, state, ...restProps }) => {
   return (
     <Media {...restProps}>
-      <Media left>
-        <Media
-          object
-          src={image}
-          className="rounded mr-2 mb-2"
-          style={{ width: 100, height: 'auto' }}
-        />
+      {type === 0 &&
+        <Badge color="primary" pill className="mr-1" style={{marginTop:"2px"}}>
+          배달
+        </Badge>
+      }
+      {type === 1 &&
+        <Badge color="secondary" pill className="mr-1" style={{marginTop:"2px"}}>
+          픽업
+        </Badge>
+      }
+      <Media body className="overflow-hidden" style={{marginLeft:"10px"}}>
+      <Media state className="text-truncate">
+          {time}
       </Media>
-      <Media body className="overflow-hidden">
-        <Media heading tag="h5" className="text-truncate">
-          {title}
+        <Media className="text-truncate">
+          {name} 님 | {product}
         </Media>
-        <p className="text-muted text-truncate">{description}</p>
+        <p className="text-muted text-truncate"><img style={{margin:"5px", width:"16px"}} src={BubbleChat}/>{description}</p>
       </Media>
-      <Media right className="align-self-center">
-        {right && typeof right === 'string' ? (
-          <Typography type="h4">{right}</Typography>
-        ) : (
-          right
-        )}
+      <Media state className="align-self-center">
+          <Typography>{state}</Typography>
       </Media>
     </Media>
   );
