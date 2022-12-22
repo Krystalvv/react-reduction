@@ -1,5 +1,4 @@
 import logo200Image from 'assets/img/logo/logo_200.png';
-import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
 import SourceLink from 'components/SourceLink';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
@@ -36,12 +35,6 @@ import {
   NavLink as BSNavLink,
 } from 'reactstrap';
 import bn from 'utils/bemnames';
-
-const sidebarBackground = {
-  backgroundImage: `url("${sidebarBgImage}")`,
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-};
 
 const navComponents = [
   { to: '/buttons', name: 'buttons', exact: false, Icon: MdRadioButtonChecked },
@@ -81,7 +74,7 @@ const pageContents = [
 ];
 
 const navItems = [
-  { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
+  { to: '/', name: 'home', exact: true, Icon: MdDashboard },
   { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
   { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
   { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
@@ -108,23 +101,8 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <aside className={bem.b()} data-image={sidebarBgImage}>
-        <div className={bem.e('background')} style={sidebarBackground} />
+      <aside className={bem.b()}>
         <div className={bem.e('content')}>
-          <Navbar>
-            <SourceLink className="navbar-brand d-flex">
-              <img
-                src={logo200Image}
-                width="40"
-                height="30"
-                className="pr-2"
-                alt=""
-              />
-              <span className="text-white">
-                Reduction <FaGithub />
-              </span>
-            </SourceLink>
-          </Navbar>
           <Nav vertical>
             {navItems.map(({ to, name, exact, Icon }, index) => (
               <NavItem key={index} className={bem.e('nav-item')}>

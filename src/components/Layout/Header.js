@@ -15,6 +15,7 @@ import {
   MdNotificationsNone,
   MdPersonPin,
   MdSettingsApplications,
+  MdReorder,
 } from 'react-icons/md';
 import {
   Button,
@@ -31,6 +32,10 @@ import {
 import bn from 'utils/bemnames';
 
 const bem = bn.create('header');
+
+const userInfo = {
+  userName: "amiwha",
+}
 
 const MdNotificationsActiveWithBadge = withBadge({
   size: 'md',
@@ -81,43 +86,17 @@ class Header extends React.Component {
     return (
       <Navbar light expand className={bem.b('bg-white')}>
         <Nav navbar className="mr-2">
-          <Button outline onClick={this.handleSidebarControlButton}>
-            <MdClearAll size={25} />
+          <Button outline color="dark" onClick={this.handleSidebarControlButton}>
+            <MdReorder size={25} />
           </Button>
-        </Nav>
-        <Nav navbar>
-          <SearchInput />
         </Nav>
 
         <Nav navbar className={bem.e('nav-right')}>
           <NavItem className="d-inline-flex">
-            <NavLink id="Popover1" className="position-relative">
-              {isNotificationConfirmed ? (
-                <MdNotificationsNone
-                  size={25}
-                  className="text-secondary can-click"
-                  onClick={this.toggleNotificationPopover}
-                />
-              ) : (
-                <MdNotificationsActiveWithBadge
-                  size={25}
-                  className="text-secondary can-click animated swing infinite"
-                  onClick={this.toggleNotificationPopover}
-                />
-              )}
+            <NavLink>
+              {userInfo.userName}
             </NavLink>
-            <Popover
-              placement="bottom"
-              isOpen={this.state.isOpenNotificationPopover}
-              toggle={this.toggleNotificationPopover}
-              target="Popover1"
-            >
-              <PopoverBody>
-                <Notifications notificationsData={notificationsData} />
-              </PopoverBody>
-            </Popover>
           </NavItem>
-
           <NavItem>
             <NavLink id="Popover2">
               <Avatar
@@ -163,6 +142,44 @@ class Header extends React.Component {
                 </UserCard>
               </PopoverBody>
             </Popover>
+          </NavItem>
+          <NavItem className="d-inline-flex">
+            <NavLink id="Popover1" className="position-relative">
+              {isNotificationConfirmed ? (
+                <MdNotificationsNone
+                  size={25}
+                  className="text-secondary can-click"
+                  onClick={this.toggleNotificationPopover}
+                />
+              ) : (
+                <MdNotificationsActiveWithBadge
+                  size={25}
+                  className="text-secondary can-click animated swing infinite"
+                  onClick={this.toggleNotificationPopover}
+                />
+              )}
+            </NavLink>
+            <Popover
+              placement="bottom"
+              isOpen={this.state.isOpenNotificationPopover}
+              toggle={this.toggleNotificationPopover}
+              target="Popover1"
+            >
+              <PopoverBody>
+                <Notifications notificationsData={notificationsData} />
+              </PopoverBody>
+            </Popover>
+          </NavItem>
+          <NavItem className="d-inline-flex">
+            <NavLink>
+              로그아웃
+            </NavLink>
+            <NavLink>
+              도움말
+            </NavLink>
+            <NavLink>
+              상담
+            </NavLink>
           </NavItem>
         </Nav>
       </Navbar>

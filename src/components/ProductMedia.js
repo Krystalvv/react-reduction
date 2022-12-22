@@ -20,7 +20,7 @@ const ProductMedia = ({ type, name, product, description, time, state, ...restPr
           픽업
         </Badge>
       }
-      <Media body className="overflow-hidden" style={{marginLeft:"10px"}}>
+      <Media body className="overflow-hidden" style={{marginLeft:"10px", marginBottom:"-5px"}}>
       <Media state className="text-truncate">
           {time}
       </Media>

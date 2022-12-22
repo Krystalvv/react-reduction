@@ -3,6 +3,8 @@ import HorizontalAvatarList from 'components/HorizontalAvatarList';
 import MapWithBubbles from 'components/MapWithBubbles';
 import Page from 'components/Page';
 import ProductMedia from 'components/ProductMedia';
+import PlanMedia from 'components/PlanMedia';
+import Counsel from 'components/Counsel';
 import SupportTicket from 'components/SupportTicket';
 import UserProgressTable from 'components/UserProgressTable';
 import { IconWidget, NumberWidget } from 'components/Widget';
@@ -12,11 +14,16 @@ import {
   chartjs,
   productsData,
   dashboardOrder,
+  plansData,
   supportTicketsData,
+  counselData,
+  reviewData,
   todosData,
   userProgressTableData,
 } from 'demos/dashboardPage';
 import React from 'react';
+import Calendar from 'react-calendar';
+import moment from 'moment';
 import { Bar, Line } from 'react-chartjs-2';
 import {
   MdBubbleChart,
@@ -27,6 +34,8 @@ import {
   MdShare,
   MdShowChart,
   MdThumbUp,
+  MdChevronLeft,
+  MdChevronRight
 } from 'react-icons/md';
 import InfiniteCalendar from 'react-infinite-calendar';
 import {
@@ -51,6 +60,13 @@ const lastWeek = new Date(
   today.getMonth(),
   today.getDate() - 7,
 );
+const mark = [
+  { markdate: '2022-12-15' },
+  { markdate: '2022-12-16' },
+  { markdate: '2022-12-17' },
+  { markdate: '2022-12-22' },
+  { markdate: '2022-12-25' },
+];
 
 class DashboardPage extends React.Component {
   componentDidMount() {
@@ -72,20 +88,58 @@ class DashboardPage extends React.Component {
 
 
           <Col md={6}>
-            <Row style={{ height: "100%", paddingTop: "15px" }}>
-              <Col md={12}>
-                <Card style={{ height: "100%" }}>
+            <Row style={{ paddingTop: "15px" }}>
+              <Col>
+                <Card>
                   {/* <CardHeader></CardHeader> */}
                   <CardBody>
-
+                    <Calendar
+                      calendarType="Hebrew"
+                      formatDay={(locale, date) => moment(date).format("DD")}
+                      formatShortWeekday={(locale, date) => moment(date).format("ddd").toUpperCase()}
+                      formatMonthYear={(locale, date) => moment(date).format("M월")}
+                      nextLabel={<MdChevronRight style={{ width: "30px", height: "25px" }} />}//">"
+                      next2Label=""//">>"
+                      prevLabel={<MdChevronLeft style={{ width: "30px", height: "25px" }} />}//"<"
+                      prev2Label=""//"<<"
+                      tileContent={({ date, view }) => {
+                        if (mark.find(({ markdate }) => (markdate === moment(date).format("YYYY-MM-DD")))) {
+                          return (
+                            <>
+                              <div className="">
+                                <div className="w-full mx-auto dot"></div>
+                              </div>
+                            </>
+                          );
+                        }
+                      }}
+                    />
                   </CardBody>
                 </Card>
               </Col>
               <Col md={12}>
-                <Card style={{ height: "100%" }}>
+                <Card>
                   <CardHeader>일정관리</CardHeader>
                   <CardBody>
+                    {plansData.map(({ id, done, description, start, end }, index) => (
 
+                      <div>
+                        <div style={{ borderTop: "1px solid #d9d9d9" }}></div>
+                        <PlanMedia
+                          key={id}
+                          done={done}
+                          description={description}
+                          start={start}
+                          end={end}
+                          style={{ marginLeft: "10px" }}
+                        />
+                        {index === plansData.length - 1 &&
+                          <div style={{ borderTop: "1px solid #d9d9d9" }}></div>
+                        }
+                      </div>
+
+
+                    ))}
                   </CardBody>
                 </Card>
               </Col>
@@ -100,20 +154,26 @@ class DashboardPage extends React.Component {
                 <Card style={{ height: "100%" }}>
                   <CardHeader>주문내역</CardHeader>
                   <CardBody>
-                    {dashboardOrder.map(
-                      ({ time, content }) => (
-                        
-                        content.map(({ id, name, type, product, description, time, state }) => (
-                          <ProductMedia
-                            key={id}
-                            type={type}
-                            name={name}
-                            product={product}
-                            description={description}
-                            time={time}
-                            state={state}
-                          />
-                        ))))}
+                    {dashboardOrder.map(({ time, content }, index) => (
+                      <div style={{ borderLeft: "1px dashed #d9d9d9", borderBottom: index === dashboardOrder.length - 1 ? "" : "1px solid #d7d7d7" }}>
+                        <div style={{ textAlign: "center", justifyContent: "center", width: "20px", height: "20px", marginLeft: "-10px", marginTop: "-10px", borderRadius: "10px", background: "rgba(218,67,89, 0.5)" }}>{time}</div>
+                        {
+                          content.map(({ id, name, type, product, description, time, state }) => (
+                            <ProductMedia
+                              key={id}
+                              type={type}
+                              name={name}
+                              product={product}
+                              description={description}
+                              time={time}
+                              state={state}
+                              style={{ marginLeft: "10px" }}
+                            />
+                          ))
+                        }
+                      </div>
+
+                    ))}
 
 
 
@@ -128,18 +188,32 @@ class DashboardPage extends React.Component {
         <Row>
           <Col md={6}>
             <Card>
-              <CardHeader>상담문의</CardHeader>
+              <CardHeader>
+                <Row className="justify-content-between" style={{ margin: "0px" }}>
+                  <div>상담문의</div>
+                  <div style={{fontSize:"14px"}}>미확인 문의 5건</div>
+                </Row>
+              </CardHeader>
               <CardBody>
-
+              {counselData.map(supportTicket => (
+                  <Counsel key={supportTicket.id} {...supportTicket} />
+                ))}
               </CardBody>
             </Card>
           </Col>
 
           <Col md={6}>
             <Card>
-              <CardHeader>리뷰</CardHeader>
+              <CardHeader>
+              <Row className="justify-content-between" style={{ margin: "0px" }}>
+                  <div>리뷰</div>
+                  <div style={{fontSize:"14px"}}>새로 등록된 리뷰 2건</div>
+                </Row>
+              </CardHeader>
               <CardBody>
-
+              {reviewData.map(supportTicket => (
+                  <Counsel key={supportTicket.id} {...supportTicket} />
+                ))}
               </CardBody>
             </Card>
           </Col>

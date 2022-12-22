@@ -20,9 +20,127 @@ import user12Image from 'assets/img/users/100_12.jpg';
 import user13Image from 'assets/img/users/100_13.jpg';
 import user14Image from 'assets/img/users/100_14.jpg';
 
+export const reviewData = [
+  {
+    id: 1,
+    avatar: user1Image,
+    name: '이남남',
+    date: '25분전',
+    text:
+      '예약한 시간에 잘 받았습니다:)',
+    status: 'new',
+  },
+  {
+    id: 2,
+    avatar: user2Image,
+    name: '남남지',
+    date: '30분전',
+    text:
+      '사진이랑 똑같아요 너무 예쁩니다! 배달로도 꽃 주문할 수 있어서 너무 좋아요.',
+    status: 'new',
+  },
+];
+
+export const counselData = [
+  {
+    id: 1,
+    avatar: user1Image,
+    name: '이남남',
+    date: '25분전',
+    text:
+      '포트폴리오에 있는 꽃다발 문의드립니다.',
+    status: '1',
+  },
+  {
+    id: 2,
+    avatar: user2Image,
+    name: '남남지',
+    date: '30분전',
+    text:
+      '분홍 장미 안개 꽃다발에 장미 꽃 추가할 수 있나요? 된다면 추가 금액은 얼마인가요?',
+    status: '1',
+  },
+  {
+    id: 3,
+    avatar: user3Image,
+    name: '남남',
+    date: '1시간전',
+    text:
+      '픽업 예약관련 문의드립니다.',
+    status: '2',
+  },
+];
+
+export const plansData = [
+  {
+    id: 1,
+    done: 1,
+    description: '고터 꽃 사장님 연락',
+    start: '9:00am',
+  },
+  {
+    id: 2,
+    done: 0,
+    description: '고터 꽃 사장님 연락',
+    start: '9:00am',
+    end: '10:00am',
+  },
+  {
+    id: 3,
+    done: 1,
+    description: '고터 꽃 사장님 연락',
+    start: '9:00am',
+  },
+  {
+    id: 4,
+    done: 0,
+    description: '고터 꽃 사장님 연락',
+    start: '9:00am',
+    end: '10:00am',
+  },
+  {
+    id: 5,
+    done: 0,
+    description: '고터 꽃 사장님 연락',
+    start: '11:00am',
+    end: '12:00am',
+  },
+];
+
 export const dashboardOrder = [
   {
     time: "9",
+    content: [{
+      id: 1,
+      type: 0,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    {
+      id: 2,
+      type: 0,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    {
+      id: 3,
+      type: 1,
+      name: '김지민',
+      product: '장미안개꽃다발',
+      description: '예쁘게 부탁드려요:)',
+      time: '9:00 am',
+      state: '배송중'
+    },
+    ]
+  },
+  {
+    time: "10",
     content: [{
       id: 1,
       type: 0,
@@ -61,15 +179,6 @@ export const dashboardOrder = [
     },
     {
       id: 5,
-      type: 1,
-      name: '김지민',
-      product: '장미안개꽃다발',
-      description: '예쁘게 부탁드려요:)',
-      time: '9:00 am',
-      state: '배송중'
-    },
-    {
-      id: 6,
       type: 0,
       name: '김지민',
       product: '장미안개꽃다발',
