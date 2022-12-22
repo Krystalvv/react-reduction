@@ -155,8 +155,10 @@ class DashboardPage extends React.Component {
                   <CardHeader>주문내역</CardHeader>
                   <CardBody>
                     {dashboardOrder.map(({ time, content }, index) => (
-                      <div style={{ borderLeft: "1px dashed #d9d9d9", borderBottom: index === dashboardOrder.length - 1 ? "" : "1px solid #d7d7d7" }}>
-                        <div style={{ textAlign: "center", justifyContent: "center", width: "20px", height: "20px", marginLeft: "-10px", marginTop: "-10px", borderRadius: "10px", background: "rgba(218,67,89, 0.5)" }}>{time}</div>
+                      <div>
+                        <div style={{fontWeight:"bold", borderLeft: "1px dashed #d9d9d9", borderBottom:"1px solid #d7d7d7", backgroundColor:"", padding:"5px"}}>{time}</div>
+                        <div style={{borderLeft: "1px dashed #d9d9d9", padding:"10px" }}>
+                        
                         {
                           content.map(({ id, name, type, product, description, time, state }) => (
                             <ProductMedia
@@ -167,10 +169,10 @@ class DashboardPage extends React.Component {
                               description={description}
                               time={time}
                               state={state}
-                              style={{ marginLeft: "10px" }}
                             />
                           ))
                         }
+                      </div>
                       </div>
 
                     ))}

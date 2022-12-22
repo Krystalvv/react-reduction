@@ -109,7 +109,7 @@ export const plansData = [
 
 export const dashboardOrder = [
   {
-    time: "9",
+    time: "9:00 am",
     content: [{
       id: 1,
       type: 0,
@@ -140,7 +140,7 @@ export const dashboardOrder = [
     ]
   },
   {
-    time: "10",
+    time: "10:00 am",
     content: [{
       id: 1,
       type: 0,
@@ -170,15 +170,6 @@ export const dashboardOrder = [
     },
     {
       id: 4,
-      type: 0,
-      name: '김지민',
-      product: '장미안개꽃다발',
-      description: '예쁘게 부탁드려요:)',
-      time: '9:00 am',
-      state: '배송중'
-    },
-    {
-      id: 5,
       type: 0,
       name: '김지민',
       product: '장미안개꽃다발',

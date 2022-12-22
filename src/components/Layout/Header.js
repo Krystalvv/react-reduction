@@ -104,7 +104,7 @@ class Header extends React.Component {
                 className="can-click"
               />
             </NavLink>
-            <Popover
+            {/* <Popover
               placement="bottom-end"
               isOpen={this.state.isOpenUserCardPopover}
               toggle={this.toggleUserCardPopover}
@@ -141,7 +141,7 @@ class Header extends React.Component {
                   </ListGroup>
                 </UserCard>
               </PopoverBody>
-            </Popover>
+            </Popover> */}
           </NavItem>
           <NavItem className="d-inline-flex">
             <NavLink id="Popover1" className="position-relative">
@@ -159,7 +159,7 @@ class Header extends React.Component {
                 />
               )}
             </NavLink>
-            <Popover
+            {/* <Popover
               placement="bottom"
               isOpen={this.state.isOpenNotificationPopover}
               toggle={this.toggleNotificationPopover}
@@ -168,7 +168,7 @@ class Header extends React.Component {
               <PopoverBody>
                 <Notifications notificationsData={notificationsData} />
               </PopoverBody>
-            </Popover>
+            </Popover> */}
           </NavItem>
           <NavItem className="d-inline-flex">
             <NavLink>
