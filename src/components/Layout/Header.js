@@ -73,24 +73,11 @@ class Header extends React.Component {
     });
   };
 
-  handleSidebarControlButton = event => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    document.querySelector('.cr-sidebar').classList.toggle('cr-sidebar--open');
-  };
-
   render() {
     const { isNotificationConfirmed } = this.state;
 
     return (
       <Navbar light expand className={bem.b('bg-white')}>
-        <Nav navbar className="mr-2">
-          <Button outline color="dark" onClick={this.handleSidebarControlButton}>
-            <MdReorder size={25} />
-          </Button>
-        </Nav>
-
         <Nav navbar className={bem.e('nav-right')}>
           <NavItem className="d-inline-flex">
             <NavLink>

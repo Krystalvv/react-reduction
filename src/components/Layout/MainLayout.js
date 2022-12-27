@@ -1,4 +1,4 @@
-import { Content, Footer, Header, Sidebar } from 'components/Layout';
+import { Content, Footer, Header, Sidebar, SidebarTablet } from 'components/Layout';
 import React from 'react';
 import {
   MdImportantDevices,
@@ -8,12 +8,34 @@ import {
 import NotificationSystem from 'react-notification-system';
 import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
 
+import {MdHome, MdWeb, MdInsertChart, MdWidgets, MdStar, MdNotificationsActive} from 'react-icons/md'
+import {
+  // UncontrolledTooltip,
+  Collapse,
+  Nav,
+  Navbar,
+  NavItem,
+  NavLink as BSNavLink,
+  Button,
+  Row
+} from 'reactstrap';
+import bn from 'utils/bemnames';
+import { NavLink } from 'react-router-dom';
+const navItems = [
+  { to: '/', name: 'home', exact: true, Icon: MdHome },
+  { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
+  { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
+  { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
+  { to: '/badges', name: 'badges', exact: false, Icon: MdStar },
+  { to: '/alerts', name: 'alerts', exact: false, Icon: MdNotificationsActive },
+];
+const bem = bn.create('sidebar-small');
+
+
 class MainLayout extends React.Component {
-  static isSidebarOpen() {
-    return document
-      .querySelector('.cr-sidebar')
-      .classList.contains('cr-sidebar--open');
-  }
+  state = {
+    sidebarMode: 0,
+  };
 
   componentWillReceiveProps({ breakpoint }) {
     if (breakpoint !== this.props.breakpoint) {
@@ -50,51 +72,48 @@ class MainLayout extends React.Component {
     // }, 2500);
   }
 
-  // close sidebar when
-  handleContentClick = event => {
-    // close sidebar if sidebar is open and screen size is less than `md`
-    if (
-      MainLayout.isSidebarOpen() &&
-      (this.props.breakpoint === 'xs' ||
-        this.props.breakpoint === 'sm' ||
-        this.props.breakpoint === 'md')
-    ) {
-      this.openSidebar('close');
-    }
-  };
-
   checkBreakpoint(breakpoint) {
     switch (breakpoint) {
       case 'xs':
+        this.setState({sidebarMode:2})
+        break
       case 'sm':
       case 'md':
-        return this.openSidebar('close');
+        this.setState({sidebarMode:1})
+        break
 
       case 'lg':
       case 'xl':
       default:
-        return this.openSidebar('open');
+        this.setState({sidebarMode:0})
+        break
     }
-  }
-
-  openSidebar(openOrClose) {
-    if (openOrClose === 'open') {
-      return document
-        .querySelector('.cr-sidebar')
-        .classList.add('cr-sidebar--open');
-    }
-    document.querySelector('.cr-sidebar').classList.remove('cr-sidebar--open');
+    console.log(this.state.sidebarMode)
   }
 
   render() {
     const { children } = this.props;
     return (
       <main className="cr-app bg-light">
+        { this.state.sidebarMode === 0 &&
         <Sidebar />
+        }
+        { this.state.sidebarMode === 1 &&
+        <SidebarTablet />
+        }
         <Content fluid onClick={this.handleContentClick}>
           <Header />
           {children}
           <Footer />
+        { this.state.sidebarMode === 2 &&
+          <div style={{position:"fixed", padding: "10px", bottom:"0", right:"0", left:"0", backgroundColor:"white"}}>
+              <Row className="justify-content-between" style={{padding:"0 20px 0 20px"}}>
+            {navItems.map(({ to, name, exact, Icon }, index) => (
+                  <Icon size={25}/>
+            ))}
+            </Row>
+          </div>
+        }
         </Content>
 
         <NotificationSystem

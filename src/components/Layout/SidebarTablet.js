@@ -24,6 +24,7 @@ import {
   MdViewList,
   MdWeb,
   MdWidgets,
+  MdReorder,
   MdHome,
 } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
@@ -34,6 +35,7 @@ import {
   Navbar,
   NavItem,
   NavLink as BSNavLink,
+  Button,
 } from 'reactstrap';
 import bn from 'utils/bemnames';
 
@@ -81,9 +83,9 @@ const navItems = [
   // { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
 ];
 
-const bem = bn.create('sidebar-large');
+const bem = bn.create('sidebar-small');
 
-class Sidebar extends React.Component {
+class SidebarTablet extends React.Component {
   state = {
     isOpenComponents: true,
     isOpenContents: true,
@@ -116,7 +118,6 @@ class Sidebar extends React.Component {
                   exact={exact}
                 >
                   <Icon className={bem.e('nav-item-icon')} />
-                  <span className="">{name}</span>
                 </BSNavLink>
               </NavItem>
             ))}
@@ -155,7 +156,6 @@ class Sidebar extends React.Component {
                     exact={exact}
                   >
                     <Icon className={bem.e('nav-item-icon')} />
-                    <span className="">{name}</span>
                   </BSNavLink>
                 </NavItem>
               ))}
@@ -195,7 +195,6 @@ class Sidebar extends React.Component {
                     exact={exact}
                   >
                     <Icon className={bem.e('nav-item-icon')} />
-                    <span className="">{name}</span>
                   </BSNavLink>
                 </NavItem>
               ))}
@@ -235,7 +234,6 @@ class Sidebar extends React.Component {
                     exact={exact}
                   >
                     <Icon className={bem.e('nav-item-icon')} />
-                    <span className="">{name}</span>
                   </BSNavLink>
                 </NavItem>
               ))}
@@ -247,4 +245,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+export default SidebarTablet;
