@@ -48,3 +48,19 @@
   border: 2px solid #d9d9d9;
 }
 
+.none_scrollbar
+{
+  position: relative;
+  z-index: 4;
+  height: calc(100vh - 20px);
+  padding-bottom: 30px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+

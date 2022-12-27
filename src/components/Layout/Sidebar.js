@@ -55,7 +55,7 @@ const navComponents = [
   // { to: '/badges', name: 'badges', exact: false, Icon: MdStar },
   // { to: '/alerts', name: 'alerts', exact: false, Icon: MdNotificationsActive },
   // { to: '/progress', name: 'progress', exact: false, Icon: MdBrush },
-  // { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
+  { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
 ];
 
 const navContents = [

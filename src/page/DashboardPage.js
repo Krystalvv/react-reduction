@@ -158,11 +158,11 @@ class DashboardPage extends React.Component {
                       <div>
                         <div style={{fontWeight:"bold", borderLeft: "1px dashed #d9d9d9", borderBottom:"1px solid #d7d7d7", backgroundColor:"", padding:"5px"}}>{time}</div>
                         <div style={{borderLeft: "1px dashed #d9d9d9", padding:"10px" }}>
-                        
                         {
-                          content.map(({ id, name, type, product, description, time, state }) => (
+                          content.map(({ id, name, type, product, description, time, state}) => (
                             <ProductMedia
                               key={id}
+                              pk={id - 1}
                               type={type}
                               name={name}
                               product={product}

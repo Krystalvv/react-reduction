@@ -20,6 +20,15 @@ import user12Image from 'assets/img/users/100_12.jpg';
 import user13Image from 'assets/img/users/100_13.jpg';
 import user14Image from 'assets/img/users/100_14.jpg';
 
+import Flower1 from 'assets/img/demo/flower1.jpeg'
+import Flower2 from 'assets/img/demo/flower2.jpeg'
+import Flower3 from 'assets/img/demo/flower3.jpeg'
+import Flower4 from 'assets/img/demo/flower4.jpeg'
+import Flower5 from 'assets/img/demo/flower5.jpeg'
+import Flower6 from 'assets/img/demo/flower6.jpeg'
+import Flower7 from 'assets/img/demo/flower7.jpeg'
+import Flower8 from 'assets/img/demo/flower8.jpeg'
+
 export const reviewData = [
   {
     id: 1,
@@ -107,6 +116,170 @@ export const plansData = [
   },
 ];
 
+export const dashboardOrderDetail = [
+  {
+    id: 1,
+    type: 0,
+    name: '김지민',
+    product: '장미안개꽃다발',
+    description: '예쁘게 부탁드려요:)',
+    time: '9:00 am',
+    option: "장미2송이 추가",
+    count: "1개",
+    product_number: "202212214R",
+    state: "준비중",
+    custom_number: "010-0000-0000",
+    reservation: "2022.00.00 오후 2시",
+    recipient: "이남지",
+    rec_number: "010-7162-4113",
+    zipCode: "02512",
+    address: '서울시 마포구 독막로 320 (태영빌딩) 102동 302호',
+    method: "비씨(5359************6517) 일시불",
+    cost: "30,300원",
+    fee: "3,000원",
+    total_cost: "33,300원",
+    image: Flower1
+  },
+  {
+    id: 2,
+    type: 0,
+    name: '김지민',
+    product: '장미안개꽃다발',
+    description: '예쁘게 부탁드려요:)',
+    time: '9:00 am',
+    option: "장미2송이 추가",
+    count: "1개",
+    product_number: "202212214R",
+    state: "준비중",
+    custom_number: "010-0000-0000",
+    reservation: "2022.00.00 오후 2시",
+    recipient: "이남지",
+    rec_number: "010-7162-4113",
+    zipCode: "02512",
+    address: '서울시 마포구 독막로 320 (태영빌딩) 102동 302호',
+    method: "비씨(5359************6517) 일시불",
+    cost: "30,300원",
+    fee: "3,000원",
+    total_cost: "33,300원",
+    image: Flower2
+  },
+  {
+    id: 3,
+    type: 0,
+    name: '김지민',
+    product: '장미안개꽃다발',
+    description: '예쁘게 부탁드려요:)',
+    time: '9:00 am',
+    option: "장미2송이 추가",
+    count: "1개",
+    product_number: "202212214R",
+    state: "준비중",
+    custom_number: "010-0000-0000",
+    reservation: "2022.00.00 오후 2시",
+    recipient: "이남지",
+    rec_number: "010-7162-4113",
+    zipCode: "02512",
+    address: '서울시 마포구 독막로 320 (태영빌딩) 102동 302호',
+    method: "비씨(5359************6517) 일시불",
+    cost: "30,300원",
+    fee: "3,000원",
+    total_cost: "33,300원",
+    image: Flower3
+  },
+  {
+    id: 4,
+    type: 0,
+    name: '김지민',
+    product: '장미안개꽃다발',
+    description: '예쁘게 부탁드려요:)',
+    time: '9:00 am',
+    option: "장미2송이 추가",
+    count: "1개",
+    product_number: "202212214R",
+    state: "준비중",
+    custom_number: "010-0000-0000",
+    reservation: "2022.00.00 오후 2시",
+    recipient: "이남지",
+    rec_number: "010-7162-4113",
+    zipCode: "02512",
+    address: '서울시 마포구 독막로 320 (태영빌딩) 102동 302호',
+    method: "비씨(5359************6517) 일시불",
+    cost: "30,300원",
+    fee: "3,000원",
+    total_cost: "33,300원",
+    image: Flower4
+  },
+  {
+    id: 5,
+    type: 0,
+    name: '김지민',
+    product: '장미안개꽃다발',
+    description: '예쁘게 부탁드려요:)',
+    time: '9:00 am',
+    option: "장미2송이 추가",
+    count: "1개",
+    product_number: "202212214R",
+    state: "준비중",
+    custom_number: "010-0000-0000",
+    reservation: "2022.00.00 오후 2시",
+    recipient: "이남지",
+    rec_number: "010-7162-4113",
+    zipCode: "02512",
+    address: '서울시 마포구 독막로 320 (태영빌딩) 102동 302호',
+    method: "비씨(5359************6517) 일시불",
+    cost: "30,300원",
+    fee: "3,000원",
+    total_cost: "33,300원",
+    image: Flower5
+  },
+  {
+    id: 6,
+    type: 0,
+    name: '김지민',
+    product: '장미안개꽃다발',
+    description: '예쁘게 부탁드려요:)',
+    time: '9:00 am',
+    option: "장미2송이 추가",
+    count: "1개",
+    product_number: "202212214R",
+    state: "준비중",
+    custom_number: "010-0000-0000",
+    reservation: "2022.00.00 오후 2시",
+    recipient: "이남지",
+    rec_number: "010-7162-4113",
+    zipCode: "02512",
+    address: '서울시 마포구 독막로 320 (태영빌딩) 102동 302호',
+    method: "비씨(5359************6517) 일시불",
+    cost: "30,300원",
+    fee: "3,000원",
+    total_cost: "33,300원",
+    image: Flower6,
+  },
+  {
+    id: 7,
+    type: 0,
+    name: '김지민',
+    product: '장미안개꽃다발',
+    description: '예쁘게 부탁드려요:)',
+    time: '9:00 am',
+    option: "장미2송이 추가",
+    count: "1개",
+    product_number: "202212214R",
+    state: "준비중",
+    custom_number: "010-0000-0000",
+    reservation: "2022.00.00 오후 2시",
+    recipient: "이남지",
+    rec_number: "010-7162-4113",
+    zipCode: "02512",
+    address: '서울시 마포구 독막로 320 (태영빌딩) 102동 302호',
+    method: "비씨(5359************6517) 일시불",
+    cost: "30,300원",
+    fee: "3,000원",
+    total_cost: "33,300원",
+    image: Flower7
+  }
+];
+
 export const dashboardOrder = [
   {
     time: "9:00 am",
@@ -142,7 +315,7 @@ export const dashboardOrder = [
   {
     time: "10:00 am",
     content: [{
-      id: 1,
+      id: 4,
       type: 0,
       name: '김지민',
       product: '장미안개꽃다발',
@@ -151,7 +324,7 @@ export const dashboardOrder = [
       state: '배송중'
     },
     {
-      id: 2,
+      id: 5,
       type: 0,
       name: '김지민',
       product: '장미안개꽃다발',
@@ -160,7 +333,7 @@ export const dashboardOrder = [
       state: '배송중'
     },
     {
-      id: 3,
+      id: 6,
       type: 1,
       name: '김지민',
       product: '장미안개꽃다발',
@@ -169,7 +342,7 @@ export const dashboardOrder = [
       state: '배송중'
     },
     {
-      id: 4,
+      id: 7,
       type: 0,
       name: '김지민',
       product: '장미안개꽃다발',

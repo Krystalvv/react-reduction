@@ -90,6 +90,7 @@
     width: 1.5rem;
     height: 1.5rem;
     padding-right: 0.5rem;
+    margin-right: 20px;
   }
 
   &--open {
@@ -98,6 +99,17 @@
 
     + .cr-content {
       margin: 0 0 0 $cr-sidebar-width;
+      transition: margin 0.2s ease-in;
+    }
+  }
+
+  &--minimum {
+    left: 0;
+    transition: left 0.2s ease-in;
+    width: 60px;
+
+    + .cr-content {
+      margin: 0 0 0 60px;
       transition: margin 0.2s ease-in;
     }
   }
