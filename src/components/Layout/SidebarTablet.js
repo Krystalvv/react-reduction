@@ -58,7 +58,7 @@ const navComponents = [
   // { to: '/badges', name: 'badges', exact: false, Icon: MdStar },
   // { to: '/alerts', name: 'alerts', exact: false, Icon: MdNotificationsActive },
   // { to: '/progress', name: 'progress', exact: false, Icon: MdBrush },
-  { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
+  // { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
 ];
 
 const navContents = [
@@ -78,6 +78,7 @@ const pageContents = [
 
 const navItems = [
   { to: '/', name: 'home', exact: true, Icon: MdHome },
+  { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
   // { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
   // { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
   // { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
@@ -90,7 +91,12 @@ class SidebarTablet extends React.Component {
     isOpenComponents: true,
     isOpenContents: true,
     isOpenPages: true,
+    activeItem: 0,
   };
+
+  setActiveItem(index) {
+    this.setState({activeItem : index});
+  }
 
   handleClick = name => () => {
     this.setState(prevState => {
@@ -116,8 +122,9 @@ class SidebarTablet extends React.Component {
                   to={to}
                   activeClassName="active"
                   exact={exact}
+                  onClick={() => this.setActiveItem(index)}
                 >
-                  <Icon className={bem.e('nav-item-icon')} />
+                  <Icon className={index === this.state.activeItem ?  bem.e('nav-item-icon__active') : bem.e('nav-item-icon')} />
                 </BSNavLink>
               </NavItem>
             ))}

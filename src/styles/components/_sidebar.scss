@@ -92,6 +92,25 @@
     height: 2.0rem;
     padding-right: 0.5rem;
     margin-right: 20px;
+    color: theme-color(dark);
+
+    &__active {
+      width: 2.0rem;
+      height: 2.0rem;
+      padding-right: 0.5rem;
+      margin-right: 20px;
+      color: theme-color(secondary);
+    }
+  }
+
+  &__nav-name
+  {
+    color: theme-color(dark);
+
+    &__active
+    {
+      color: theme-color(secondary);
+    }
   }
 
   + .cr-content {
@@ -107,6 +126,7 @@
       color: theme-color(dark);
       border-radius: 4px;
       opacity: 0.86;
+      
     }
 
     .nav-link {
@@ -115,9 +135,14 @@
       // }
       color: theme-color(dark);
 
-      &:hover {
-        background: rgba(theme-color(dark), 0.15);
+      &__active
+      {
+        color: theme-color(secondary);
       }
+
+      // &:hover {
+      //   background: rgba(theme-color(dark), 0.15);
+      // }
     }
   }
 }
@@ -212,10 +237,17 @@
     //   padding: 0;
     //   margin: 0 auto;
     // }
-    width: 2.0rem;
-    height: 2.0rem;
-    padding-right: 0.5rem;
-    margin-right: 20px;
+    width: 1.8rem;
+    height: 1.8rem;
+    // padding-right: 0.5rem;
+    // margin-right: 20px;
+    color: theme-color(dark);
+
+    &__active {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: theme-color(secondary);
+    }
   }
 
   + .cr-content {
@@ -239,9 +271,9 @@
       // }
       color: theme-color(dark);
 
-      &:hover {
-        background: rgba(theme-color(dark), 0.15);
-      }
+      // &:hover {
+      //   background: rgba(theme-color(dark), 0.15);
+      // }
     }
   }
 }

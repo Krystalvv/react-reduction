@@ -35,7 +35,13 @@ const bem = bn.create('sidebar-small');
 class MainLayout extends React.Component {
   state = {
     sidebarMode: 0,
+    activeItem: 0,
   };
+  
+
+  setActiveItem(index) {
+    this.setState({activeItem : index});
+  }
 
   componentWillReceiveProps({ breakpoint }) {
     if (breakpoint !== this.props.breakpoint) {
@@ -106,13 +112,21 @@ class MainLayout extends React.Component {
           {children}
           <Footer />
         { this.state.sidebarMode === 2 &&
-          <div style={{position:"fixed", padding: "10px", bottom:"0", right:"0", left:"0", backgroundColor:"white"}}>
-              <Row className="justify-content-between" style={{padding:"0 20px 0 20px"}}>
-            {navItems.map(({ to, name, exact, Icon }, index) => (
-                  <Icon size={25}/>
-            ))}
-            </Row>
-          </div>
+        <div style={{position:"fixed", padding: "10px", bottom:"0", right:"0", left:"0", backgroundColor:"white"}}>
+        <Nav>
+          {navItems.map(({ to, name, exact, Icon }, index) => (
+              <BSNavLink
+                tag={NavLink}
+                to={to}
+                activeClassName="active"
+                exact={exact}
+                onClick={() => this.setActiveItem(index)}
+              >
+                <Icon className={index === this.state.activeItem ?  bem.e('nav-item-icon__active') : bem.e('nav-item-icon')} />
+              </BSNavLink>
+          ))}
+        </Nav>
+        </div>
         }
         </Content>
 
