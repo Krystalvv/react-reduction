@@ -29,6 +29,46 @@ import Flower6 from 'assets/img/demo/flower6.jpeg'
 import Flower7 from 'assets/img/demo/flower7.jpeg'
 import Flower8 from 'assets/img/demo/flower8.jpeg'
 
+export const chatData = [
+  {
+    date: '2022년 12월 15일 금요일',
+    content: [{
+      time:"오후 4:15",
+      trans: 0,
+      type: 1,
+      image: Flower1,
+      product: "장미안개꽃다발",
+      discount: "10%",
+      cost:"40,000",
+      discount_cost:"36,000원",
+      name:"아미화"
+    },
+    {
+      time:"오후 4:15",
+      trans: 0,
+      type: 0,
+      comment: '안녕하세요 아미화입니다.\n주문하신 장미안개꽃다발에 옵션을 추가하셨는데 장미재고가 부족하네요...\n정말 죄송합니다.\n\n혹시 다른 소재로 변경드려도 괜찮을까요?\n사진 보내드리겠습니다:)',
+      name:"아미화"
+    },
+    {
+      time:"오후 4:17",
+      trans: 1,
+      type: 0,
+      comment: '네',
+      name:"김지민"
+    },
+    {
+      time:"오후 4:17",
+      trans: 1,
+      type: 0,
+      comment: '괜찮습니다.',
+      name:"김지민"
+    },
+  ]
+
+  }
+];
+
 export const reviewData = [
   {
     id: 1,

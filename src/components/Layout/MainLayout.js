@@ -113,7 +113,7 @@ class MainLayout extends React.Component {
           <Footer />
         { this.state.sidebarMode === 2 &&
         <div style={{position:"fixed", padding: "10px", bottom:"0", right:"0", left:"0", backgroundColor:"white"}}>
-        <Nav>
+        <Nav className="justify-content-between">
           {navItems.map(({ to, name, exact, Icon }, index) => (
               <BSNavLink
                 tag={NavLink}
