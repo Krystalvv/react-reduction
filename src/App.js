@@ -38,7 +38,7 @@ const FormPage = React.lazy(() => import('page/FormPage'));
 const InputGroupPage = React.lazy(() => import('page/InputGroupPage'));
 const ModalPage = React.lazy(() => import('page/ModalPage'));
 const ProgressPage = React.lazy(() => import('page/ProgressPage'));
-const TablePage = React.lazy(() => import('page/TablePage'));
+const OrderPage = React.lazy(() => import('page/OrderPage'));
 const TypographyPage = React.lazy(() => import('page/TypographyPage'));
 const WidgetPage = React.lazy(() => import('page/WidgetPage'));
 
@@ -78,7 +78,6 @@ class App extends React.Component {
                 <Route exact path="/widgets" component={WidgetPage} />
                 <Route exact path="/typography" component={TypographyPage} />
                 <Route exact path="/alerts" component={AlertPage} />
-                <Route exact path="/tables" component={TablePage} />
                 <Route exact path="/badges" component={BadgePage} />
                 <Route
                   exact
@@ -91,6 +90,8 @@ class App extends React.Component {
                 <Route exact path="/forms" component={FormPage} />
                 <Route exact path="/input-groups" component={InputGroupPage} />
                 <Route exact path="/charts" component={ChartPage} />
+
+                <Route exact path="/order" component={OrderPage} />
               </React.Suspense>
             </MainLayout>
             <Redirect to="/" />

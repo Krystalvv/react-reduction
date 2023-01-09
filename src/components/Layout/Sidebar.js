@@ -76,10 +76,14 @@ const pageContents = [
 
 const navItems = [
   { to: '/', name: 'home', exact: true, Icon: MdHome },
-  { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
-  // { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
-  // { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
-  // { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
+  { to: '/order', name: '주문관리', exact: true, Icon: MdViewDay },
+  { to: '/', name: '수발주관리', exact: true, Icon: MdAccountCircle },
+  { to: '/', name: '상품관리', exact: true, Icon: MdBorderAll },
+  { to: '/', name: '포트폴리오', exact: true, Icon: MdBrush },
+  { to: '/', name: '매출관리', exact: true, Icon: MdDashboard },
+  { to: '/', name: '광고', exact: true, Icon: MdViewList },
+  { to: '/', name: 'my shop', exact: true, Icon: MdNotificationsActive },
+  { to: '/', name: 'flens', exact: true, Icon: MdTextFields },
 ];
 
 const bem = bn.create('sidebar-large');

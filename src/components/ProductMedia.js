@@ -178,7 +178,7 @@ const ProductMedia = ({ pk, type, name, product, description, time, state, detai
                                 <Col md={6} style={{padding:"10px 20px"}}>
                                   <img src={image} style={{width:"100%"}}></img>
                                 </Col>
-                                <Col md={6}>
+                                <Col md={5} style={{marginLeft:"15px"}}>
                                   <Row style={{marginTop:"5px"}}>
                                     <strong>{product}</strong>
                                   </Row>
