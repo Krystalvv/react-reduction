@@ -512,6 +512,91 @@ export const avatarsData = [
   },
 ];
 
+export const orderTableData = [
+  {
+    date: '2023. 01. 10',
+    state: '결제완료',
+    carry:0,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    order_address: '서울시 마포구 독막로 72-30 (태영빌딩 104호)',
+    order_from: '김지민',
+    order_to: '이남지',
+    order_date: '2023. 01. 12 | 10:00am',
+    payment: '35,000원\n카드결제',
+    comment: '예쁘게 부탁드려요:)',
+    new: 1
+  },
+  {
+    date: '2023. 01. 10',
+    state: '결제완료',
+    carry:0,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    order_address: '서울시 마포구 독막로 72-30 (태영빌딩 104호)',
+    order_from: '김지민',
+    order_to: '이남지',
+    order_date: '2023. 01. 12 | 10:00am',
+    payment: '35,000원\n카드결제',
+    comment: '예쁘게 부탁드려요:)',
+    new: 1
+  },
+  {
+    date: '2023. 01. 10',
+    state: '결제완료',
+    carry:0,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    order_address: '서울시 마포구 독막로 72-30 (태영빌딩 104호)',
+    order_from: '김지민',
+    order_to: '이남지',
+    order_date: '2023. 01. 12 | 10:00am',
+    payment: '35,000원\n카드결제',
+    comment: '예쁘게 부탁드려요:)',
+    new: 1
+  },
+  {
+    date: '2023. 01. 10',
+    state: '결제완료',
+    carry:1,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    order_address: '서울시 마포구 독막로 72-30 (태영빌딩 104호)',
+    order_from: '김지민',
+    order_to: '이남지',
+    order_date: '2023. 01. 12 | 10:00am',
+    payment: '35,000원\n카드결제',
+    comment: '예쁘게 부탁드려요:)'
+  },
+  {
+    date: '2023. 01. 10',
+    state: '결제완료',
+    carry:0,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    order_address: '서울시 마포구 독막로 72-30 (태영빌딩 104호)',
+    order_from: '김지민',
+    order_to: '이남지',
+    order_date: '2023. 01. 12 | 10:00am',
+    payment: '35,000원\n카드결제',
+    comment: '예쁘게 부탁드려요:)예쁘게 부탁드려요:)예쁘게 부탁드려요:)'
+  },
+  {
+    date: '2023. 01. 10',
+    state: '결제완료',
+    carry:0,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    order_address: '서울시 마포구 독막로 72-30 (태영빌딩 104호)',
+    order_from: '김지민',
+    order_to: '이남지',
+    order_date: '2023. 01. 12 | 10:00am',
+    payment: '35,000원\n카드결제',
+    comment: '예쁘게 부탁드려요:)\n예쁘게 부탁드려요:)\n예쁘게 부탁드려요:)\n예쁘게 부탁드려요:)'
+  },
+];
+
+
 export const userProgressTableData = [
   {
     avatar: user1Image,

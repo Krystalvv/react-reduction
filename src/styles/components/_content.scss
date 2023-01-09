@@ -64,3 +64,117 @@
   }
 }
 
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #DA4359;
+  vertical-align: middle;
+}
+
+.radio_button {
+  width: 18px;
+  height: 18px;
+  accent-color: #DA4359;
+  vertical-align: middle;
+}
+
+.category_button
+{
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 0px;
+  box-shadow: none;
+  outline: 0;
+  border-bottom: 5px solid white;
+  color: black;
+
+  &:focus{
+    outline: 0;
+    box-shadow: none;
+    color: #DA4359;
+  }
+}
+
+.category_button_active
+{
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0px;
+    border-bottom: 5px solid #DA4359;
+    color: #DA4359;
+    outline: 0;
+    box-shadow: none;
+
+    &:focus{
+      color: #DA4359;
+      outline: 0;
+      box-shadow: none;
+    }
+}
+
+.button_item
+{
+  width: 60px;
+  height: 28px;
+
+  &:focus{
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+.combobox
+{
+  border-radius: 4px;
+  border: 1px solid #6F7070;
+  height: 28px;
+  width: 237px;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.combobox_item
+{
+  border-radius: 0px;
+  border-bottom: 1px solid #6F7070;
+  height: 28px;
+  width: 237px;
+  align-items: center;
+  text-align: center;
+
+  &:hover
+  {
+    color: white;
+    background: #373737;
+  }
+}
+
+.pagination
+{
+  font-size: 18px;
+  box-shadow: none;
+  outline: 0;
+  color: black;
+
+  &:focus{
+    outline: 0;
+    box-shadow: none;
+    color: #DA4359;
+  }
+}
+
+.pagination_sel
+{
+  font-weight: bold;
+  font-size: 18px;
+  color: #DA4359;
+  outline: 0;
+  box-shadow: none;
+
+  &:focus{
+    color: #DA4359;
+    outline: 0;
+    box-shadow: none;
+  }
+}
