@@ -36,6 +36,10 @@ const B2BPage = () => {
   const [selButton, setButton] = useState(0);
   const [isOpen, setMenuOpen] = useState(false);
 
+  const currentItem = (x) => {
+    console.log(x);
+  };
+
   const reset = () => {
 
   }
@@ -76,7 +80,7 @@ const B2BPage = () => {
         <Col style={{ padding: "10px", borderTop: "1px solid #8f8f8f", borderBottom: "1px solid #8f8f8f" }}>
           <Row className="align-items-center" style={{ margin: "0px" }}>
             <div style={{ width: "100px" }}>{'조회기간'}</div>
-            <Combobox items={searchDate} />
+            <Combobox items={searchDate} currentItem={currentItem}/>
             <div className="can-click" onClick={toggleMenu} style={{ marginLeft: "auto", marginRight: "10px" }}>{isOpen ? <MdUnfoldLess style={{ color: "#da4359" }} size={25} /> : <MdUnfoldMore size={25} />}</div>
           </Row>
           <Row style={{ marginLeft: "100px" }}>
@@ -108,8 +112,8 @@ const B2BPage = () => {
             <Row className="align-items-center" style={{ margin: "0px" }}>
               <div style={{ width: "100px" }}>{'카테고리'}</div>
               <Row style={{ margin: "0px" }}>
-                <Combobox items={categoryDep1} />
-                <Combobox items={categoryDep2} />
+                <Combobox items={categoryDep1} currentItem={currentItem}/>
+                <Combobox items={categoryDep2} currentItem={currentItem}/>
               </Row>
             </Row>
           }
@@ -117,7 +121,7 @@ const B2BPage = () => {
             <div>
               <Row className="align-items-center" style={{ margin: "0px" }}>
                 <div style={{ width: "100px" }}>{'상세검색'}</div>
-                <Combobox items={detailSearch} />
+                <Combobox items={detailSearch} currentItem={currentItem}/>
               </Row>
 
               <Row className="align-items-center" style={{ margin: "0px" }}>

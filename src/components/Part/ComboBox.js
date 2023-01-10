@@ -12,11 +12,12 @@ import {
   MdKeyboardArrowDown
 } from 'react-icons/md';
 
-const Combobox = ({ items, ...restProps }) => {
+const Combobox = ({ items, currentItem, ...restProps }) => {
 
   const [combo1, setCombo1] = useState(items[0]);
   const toggleCombo1 = (index) => () => {
     setCombo1(items[index]);
+    currentItem(items[index]);
   };
 
   return ( 
