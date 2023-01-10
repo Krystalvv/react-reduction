@@ -26,7 +26,7 @@ import {
 } from 'demos/dashboardPage';
 import Combobox from '../components/Part/ComboBox';
 
-const OrderPage = () => {
+const B2BPage = () => {
   const searchDate = ['주문 접수 일', '예약일'];
   const categoryDep1 = ['꽃', '식물'];
   const categoryDep2 = ['전체', '꽃다발', '꽃바구니', '화분'];
@@ -66,14 +66,7 @@ const OrderPage = () => {
             color=""
             className={category === 0 ? "category_button_active" : "category_button"}
           >
-            주문조회
-          </Button>
-          <Button
-            onClick={toggle(1)}
-            color=""
-            className={category === 1 ? "category_button_active" : "category_button"}
-          >
-            정기배송조회
+            수발주 관리
           </Button>
         </ButtonGroup>
       </div>
@@ -152,12 +145,12 @@ const OrderPage = () => {
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  <Input type="radio" className="radio_button" /> 배송
+                  <Input type="radio" className="radio_button" /> 수주
                 </Label>
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  <Input type="radio" className="radio_button" /> 픽업
+                  <Input type="radio" className="radio_button" /> 발주
                 </Label>
               </FormGroup>
             </Form>
@@ -188,4 +181,4 @@ const OrderPage = () => {
   );
 };
 
-export default OrderPage;
+export default B2BPage;

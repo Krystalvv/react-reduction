@@ -1,3 +1,5 @@
+import React from 'react';
+
 import product1Image from 'assets/img/products/product_640-1.jpg';
 import product2Image from 'assets/img/products/product_640-2.jpg';
 import product3Image from 'assets/img/products/product_640-3.jpg';
@@ -28,6 +30,93 @@ import Flower5 from 'assets/img/demo/flower5.jpeg'
 import Flower6 from 'assets/img/demo/flower6.jpeg'
 import Flower7 from 'assets/img/demo/flower7.jpeg'
 import Flower8 from 'assets/img/demo/flower8.jpeg'
+
+export const productTableData = [
+  {
+    date: '2023. 01. 07',
+    state: '판매중',
+    product_image: Flower1,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    start_date: '2023. 01. 07',
+    end_date: '2023.01.31',
+    payment: '10% 60,000원\n54,000원',
+    goods: 108,
+    review: 20,
+    remain: 10,
+    total: 20,
+  },
+  {
+    date: '2023. 01. 07',
+    state: '판매중',
+    product_image: Flower2,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    start_date: '2023. 01. 07',
+    end_date: '2023.01.31',
+    payment: '10% 60,000원\n54,000원',
+    goods: 108,
+    review: 20,
+    remain: 10,
+    total: 20,
+  },
+  {
+    date: '2023. 01. 07',
+    state: '판매중',
+    product_image: Flower3,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    start_date: '2023. 01. 07',
+    end_date: '2023.01.31',
+    payment: '10% 60,000원\n54,000원',
+    goods: 108,
+    review: 20,
+    remain: 10,
+    total: 20,
+  },
+  {
+    date: '2023. 01. 07',
+    state: '판매마감',
+    product_image: Flower4,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    start_date: '2023. 01. 07',
+    end_date: '2023.01.31',
+    payment: '10% 60,000원\n54,000원',
+    goods: 108,
+    review: 20,
+    remain: 10,
+    total: 20,
+  },
+  {
+    date: '2023. 01. 07',
+    state: '품절',
+    product_image: Flower5,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    start_date: '2023. 01. 07',
+    end_date: '2023.01.31',
+    payment: '10% 60,000원\n54,000원',
+    goods: 108,
+    review: 20,
+    remain: 10,
+    total: 20,
+  },
+  {
+    date: '2023. 01. 07',
+    state: '판매중',
+    product_image: Flower6,
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    start_date: '2023. 01. 07',
+    end_date: '2023.01.31',
+    payment: '10% 60,000원\n54,000원',
+    goods: 108,
+    review: 20,
+    remain: 10,
+    total: 20,
+  },
+];
 
 export const chatData = [
   {
@@ -580,19 +669,6 @@ export const orderTableData = [
     order_date: '2023. 01. 12 | 10:00am',
     payment: '35,000원\n카드결제',
     comment: '예쁘게 부탁드려요:)예쁘게 부탁드려요:)예쁘게 부탁드려요:)'
-  },
-  {
-    date: '2023. 01. 10',
-    state: '결제완료',
-    carry:0,
-    order_number: '220822A01',
-    order_product: '장미안개 꽃다발',
-    order_address: '서울시 마포구 독막로 72-30 (태영빌딩 104호)',
-    order_from: '김지민',
-    order_to: '이남지',
-    order_date: '2023. 01. 12 | 10:00am',
-    payment: '35,000원\n카드결제',
-    comment: '예쁘게 부탁드려요:)\n예쁘게 부탁드려요:)\n예쁘게 부탁드려요:)\n예쁘게 부탁드려요:)'
   },
 ];
 

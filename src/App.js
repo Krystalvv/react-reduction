@@ -38,9 +38,12 @@ const FormPage = React.lazy(() => import('page/FormPage'));
 const InputGroupPage = React.lazy(() => import('page/InputGroupPage'));
 const ModalPage = React.lazy(() => import('page/ModalPage'));
 const ProgressPage = React.lazy(() => import('page/ProgressPage'));
-const OrderPage = React.lazy(() => import('page/OrderPage'));
 const TypographyPage = React.lazy(() => import('page/TypographyPage'));
 const WidgetPage = React.lazy(() => import('page/WidgetPage'));
+
+const OrderPage = React.lazy(() => import('page/OrderPage'));
+const B2BPage = React.lazy(() => import('page/B2BPage'));
+const ProductPage = React.lazy(() => import('page/ProductPage'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -92,6 +95,8 @@ class App extends React.Component {
                 <Route exact path="/charts" component={ChartPage} />
 
                 <Route exact path="/order" component={OrderPage} />
+                <Route exact path="/b2b" component={B2BPage} />
+                <Route exact path="/product" component={ProductPage} />
               </React.Suspense>
             </MainLayout>
             <Redirect to="/" />

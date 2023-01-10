@@ -78,8 +78,8 @@ const pageContents = [
 const navItems = [
   { to: '/', name: 'home', exact: true, Icon: MdHome },
   { to: '/order', name: '주문관리', exact: true, Icon: MdLocalDining },
-  { to: '/', name: '수발주관리', exact: true, Icon: MdAccountCircle },
-  { to: '/', name: '상품관리', exact: true, Icon: MdBorderAll },
+  { to: '/b2b', name: '수발주관리', exact: true, Icon: MdAccountCircle },
+  { to: '/product', name: '상품관리', exact: true, Icon: MdBorderAll },
   { to: '/', name: '포트폴리오', exact: true, Icon: MdBrush },
   { to: '/', name: '매출관리', exact: true, Icon: MdDashboard },
   { to: '/input-groups', name: '광고', exact: true, Icon: MdViewList },
