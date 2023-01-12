@@ -81,24 +81,22 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
             <td className="align-middle text-center">{date}</td>
             <td className="align-middle text-center"><MdVerticalAlignBottom size={25} /></td>
             <Modal
-        isOpen={selIndex === index && isOpen}
-        toggle={productView(index)}
-        style={{ width: "997px", maxWidth: "80%", height:"800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-      >
-                <ModalHeader toggle={productView(index)}>
-          <Row style={{ marginLeft: "10px" }}>
-            상품 상세 정보
-          </Row>
-        </ModalHeader>
-        <ModalBody>
-        <ProductSlider data={rowData}>
+              isOpen={selIndex === index && isOpen}
+              toggle={productView(index)}
+              style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+            >
+              <ModalHeader toggle={productView(index)}>
+                상품 상세 정보
+              </ModalHeader>
+              <ModalBody>
+                <ProductSlider data={rowData}>
 
-        </ProductSlider>
-        </ModalBody>
+                </ProductSlider>
+              </ModalBody>
 
-      </Modal>
+            </Modal>
           </tr>
-          
+
         ))}
       </tbody>
     </Table>
