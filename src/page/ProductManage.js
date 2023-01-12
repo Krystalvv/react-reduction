@@ -14,6 +14,7 @@ import {
   Label,
   Modal,
   ModalBody,
+  ModalHeader
 } from 'reactstrap';
 
 import {
@@ -237,6 +238,21 @@ const ProductManage = () => {
                             <AiFillHeart style={{ margin: "10px" }} />{productTableData[index].goods}<BsChat style={{ margin: "10px" }} />{productTableData[index].review}
                           </div>
                           }
+                          <Modal
+                            isOpen={index === selIndex && detailView}
+                            toggle={productView(selIndex)}
+                            style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                          >
+                            <ModalHeader toggle={productView(selIndex)}>
+                              상품 상세 정보
+                            </ModalHeader>
+                            <ModalBody>
+                              <ProductSlider data={productTableData}>
+
+                              </ProductSlider>
+                            </ModalBody>
+
+                          </Modal>
                         </div>
                         <div class="container">
                           <img className="box" onMouseOver={mouseOn(index + 1)} src={productTableData[index + 1].product_image}></img>
@@ -244,6 +260,21 @@ const ProductManage = () => {
                             <AiFillHeart style={{ margin: "10px" }} />{productTableData[index + 1].goods}<BsChat style={{ margin: "10px" }} />{productTableData[index + 1].review}
                           </div>
                           }
+                          <Modal
+                            isOpen={index + 1 === selIndex && detailView}
+                            toggle={productView(selIndex)}
+                            style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                          >
+                            <ModalHeader toggle={productView(selIndex)}>
+                              상품 상세 정보
+                            </ModalHeader>
+                            <ModalBody>
+                              <ProductSlider data={productTableData}>
+
+                              </ProductSlider>
+                            </ModalBody>
+
+                          </Modal>
                         </div>
                         <div class="container">
                           <img className="box" onMouseOver={mouseOn(index + 2)} src={productTableData[index + 2].product_image}></img>
@@ -251,25 +282,25 @@ const ProductManage = () => {
                             <AiFillHeart style={{ margin: "10px" }} />{productTableData[index + 2].goods}<BsChat style={{ margin: "10px" }} />{productTableData[index + 2].review}
                           </div>
                           }
+                          <Modal
+                            isOpen={index + 2 === selIndex && detailView}
+                            toggle={productView(selIndex)}
+                            style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                          >
+                            <ModalHeader toggle={productView(selIndex)}>
+                              상품 상세 정보
+                            </ModalHeader>
+                            <ModalBody>
+                              <ProductSlider data={productTableData}>
+
+                              </ProductSlider>
+                            </ModalBody>
+
+                          </Modal>
                         </div>
                       </Row>
                     ))}
                   </div>
-                  <Modal
-                    isOpen={detailView}
-                    toggle={toggleProductView()}
-                    style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                  >
-                    <ModalHeader toggle={productView(index)}>
-                      상품 상세 정보
-                    </ModalHeader>
-                    <ModalBody>
-                      <ProductSlider data={productTableData}>
-
-                      </ProductSlider>
-                    </ModalBody>
-
-                  </Modal>
                 </Row>
 
               }
