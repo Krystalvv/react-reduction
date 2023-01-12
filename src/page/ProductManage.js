@@ -11,7 +11,9 @@ import {
   Form,
   FormGroup,
   FormText,
-  Label
+  Label,
+  Modal,
+  ModalBody,
 } from 'reactstrap';
 
 import {
@@ -34,6 +36,9 @@ import ProductTableView from 'components/ProductTableView';
 import {
   productTableData,
 } from 'demos/dashboardPage';
+
+import { ProductSlider } from '../components/Part/Carousel';
+
 import Combobox from '../components/Part/ComboBox';
 
 const ProductManage = () => {
@@ -79,6 +84,18 @@ const ProductManage = () => {
 
   const toggleButtonGroup = (index) => () => {
     setButton(index);
+  };
+
+  const [selIndex, setIndex] = useState(false);
+  const [detailView, setDetailOpen] = useState(false);
+
+  const productView = (index) => () => {
+    setDetailOpen(!detailView);
+    setIndex(index);
+  };
+
+  const toggleProductView = () => () => {
+    setDetailOpen(!detailView);
   };
 
   return (
@@ -216,21 +233,21 @@ const ProductManage = () => {
                         {/* overlay image */}
                         <div class="container">
                           <img className="box" onMouseOver={mouseOn(index)} src={productTableData[index].product_image}></img>
-                          {hoverIndex === index && <div class="box stack-top" onMouseOut={mouseOut(index)} style={{ color: "white", background: 'black' }}>
+                          {hoverIndex === index && <div class="box stack-top" onClick={productView(index)} onMouseOut={mouseOut(index)} style={{ color: "white", background: 'black' }}>
                             <AiFillHeart style={{ margin: "10px" }} />{productTableData[index].goods}<BsChat style={{ margin: "10px" }} />{productTableData[index].review}
                           </div>
                           }
                         </div>
                         <div class="container">
                           <img className="box" onMouseOver={mouseOn(index + 1)} src={productTableData[index + 1].product_image}></img>
-                          {hoverIndex === index + 1 && <div class="box stack-top" onMouseOut={mouseOut(index + 1)} style={{ color: "white", background: 'black' }}>
+                          {hoverIndex === index + 1 && <div class="box stack-top" onClick={productView(index+1)}  onMouseOut={mouseOut(index + 1)} style={{ color: "white", background: 'black' }}>
                             <AiFillHeart style={{ margin: "10px" }} />{productTableData[index + 1].goods}<BsChat style={{ margin: "10px" }} />{productTableData[index + 1].review}
                           </div>
                           }
                         </div>
                         <div class="container">
                           <img className="box" onMouseOver={mouseOn(index + 2)} src={productTableData[index + 2].product_image}></img>
-                          {hoverIndex === index + 2 && <div class="box stack-top" onMouseOut={mouseOut(index + 2)} style={{ color: "white", background: 'black' }}>
+                          {hoverIndex === index + 2 && <div class="box stack-top" onClick={productView(index+2)} onMouseOut={mouseOut(index + 2)} style={{ color: "white", background: 'black' }}>
                             <AiFillHeart style={{ margin: "10px" }} />{productTableData[index + 2].goods}<BsChat style={{ margin: "10px" }} />{productTableData[index + 2].review}
                           </div>
                           }
@@ -238,7 +255,20 @@ const ProductManage = () => {
                       </Row>
                     ))}
                   </div>
+                  <Modal
+        isOpen={detailView}
+        toggle={toggleProductView()}
+        style={{ width: "997px", maxWidth: "80%", height:"800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+      >
+        <ModalBody>
+        <ProductSlider data={productTableData}>
+
+        </ProductSlider>
+        </ModalBody>
+
+      </Modal>
                 </Row>
+                
               }
 
             </div>

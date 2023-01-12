@@ -1,27 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'utils/propTypes';
+import { ProductSlider } from '../components/Part/Carousel';
 
-import { Table, Input, Label, FormGroup, Col, Row, Badge } from 'reactstrap';
+import {
+  Table,
+  Input,
+  Label,
+  FormGroup,
+  Col,
+  Row,
+  Badge,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter,
+  Button
+} from 'reactstrap';
 
-import
-{
+import {
   MdVerticalAlignBottom,
 } from 'react-icons/md'
 
-import
-{
+import {
   AiFillHeart,
   AiOutlineShoppingCart,
 } from 'react-icons/ai'
 
-import
-{
+import {
   BsChat
 } from 'react-icons/bs'
 
 const ProductTableView = ({ headers, rowData, ...restProps }) => {
+  const [isOpen, setOpen] = useState(false);
+  const [selIndex, setIndex] = useState(false);
+
+  const toggle = () => () => {
+    setOpen(!isOpen);
+  };
+
+  const productView = (index) => () => {
+    setOpen(!isOpen);
+    setIndex(index);
+  };
+
   return (
-    <Table relative style={{minWidth:"1100px"}} hover {...restProps}>
+    <Table relative style={{ minWidth: "1100px" }} hover {...restProps}>
       {/* <thead>
         <tr className="text-capitalize align-middle text-center">
           {headers.map((item, index) => <th key={index}>{item}</th>)}
@@ -29,7 +52,7 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
       </thead> */}
       <tbody>
         {rowData.map(({ product_image, date, state, payment, goods, review, remain, total, ...info }, index) => (
-          <tr key={index}>
+          <tr key={index} onClick={productView(index)}>
             <th className="align-middle" scope="row">
               <FormGroup check inline>
                 <Label check>
@@ -39,8 +62,8 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
             </th>
             <td className="align-middle text-center"><strong>{index + 1}</strong></td>
             <td className="align-middle text-center"><img className='table_image' src={product_image}></img></td>
-            <td className="align-middle" style={{ }}>
-              <Row style={{margin:"0px"}}>
+            <td className="align-middle" style={{}}>
+              <Row style={{ margin: "0px" }}>
                 <Col style={{ margin: "0px" }}>
                   <div>{info.start_date} {info.end_date && ' ~ '} {info.end_date}</div>
                   <div>{info.order_number} {info.order_product}</div>
@@ -48,16 +71,34 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
               </Row>
             </td>
             <td className="align-middle text-center">
-              <AiFillHeart style={{margin:"10px"}}/>{goods}<BsChat style={{margin:"10px"}}/>{review}
+              <AiFillHeart style={{ margin: "10px" }} />{goods}<BsChat style={{ margin: "10px" }} />{review}
             </td>
             <td className="align-middle text-center">{state}</td>
-            <td className="align-middle text-center" style={{whiteSpace:"pre-wrap"}}>{payment}</td>
+            <td className="align-middle text-center" style={{ whiteSpace: "pre-wrap" }}>{payment}</td>
             <td className="align-middle text-center">
-              <AiOutlineShoppingCart style={{margin:"10px"}}/> <strong style={{color:"#da4359"}}>{remain}</strong> / {total}건
+              <AiOutlineShoppingCart style={{ margin: "10px" }} /> <strong style={{ color: "#da4359" }}>{remain}</strong> / {total}건
             </td>
             <td className="align-middle text-center">{date}</td>
-            <td className="align-middle text-center"><MdVerticalAlignBottom size={25}/></td>
+            <td className="align-middle text-center"><MdVerticalAlignBottom size={25} /></td>
+            <Modal
+        isOpen={selIndex === index && isOpen}
+        toggle={productView(index)}
+        style={{ width: "997px", maxWidth: "80%", height:"800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+      >
+                <ModalHeader toggle={productView(index)}>
+          <Row style={{ marginLeft: "10px" }}>
+            상품 상세 정보
+          </Row>
+        </ModalHeader>
+        <ModalBody>
+        <ProductSlider data={rowData}>
+
+        </ProductSlider>
+        </ModalBody>
+
+      </Modal>
           </tr>
+          
         ))}
       </tbody>
     </Table>
