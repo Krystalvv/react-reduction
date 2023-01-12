@@ -19,7 +19,7 @@ import ProductRegister2 from './ProductRegister2';
 import ProductRegister3 from './ProductRegister3';
 import ProductRegister4 from './ProductRegister4';
 
-const ProductRegister = ({ registerProduct, ...restProps }) => {
+const ProductEdit = ({ registerProduct, ...restProps }) => {
   const [step, setStep] = useState(0);
 
   const nextStep = () => {
@@ -39,6 +39,7 @@ const ProductRegister = ({ registerProduct, ...restProps }) => {
       title="Input Groups"
       breadcrumbs={[{ name: 'Input Groups', active: true }]}
     >
+      <div style={{fontSize:"20px", fontWeight:"bold", backgroundColor:"white", padding:"10px"}}> 상품 수정</div>
       { step < 4 && 
       <Row style={{ padding: "0 10px 0 10px", backgroundColor: "white" }}>
         <div style={{ margin: "0 10px", backgroundColor: "white" }}>
@@ -66,7 +67,7 @@ const ProductRegister = ({ registerProduct, ...restProps }) => {
         <Button style={{ marginLeft:"auto", width: "123px" }} outline color="dark">취소</Button>
         {step > 0 && <Button style={{ marginLeft:"10px", width: "123px" }} outline color="dark" onClick={prevStep}>이전</Button>}
         {step < 3 && <Button style={{ width: "123px", marginLeft: "10px" }} color="dark" onClick={nextStep}>다음</Button>}
-        {step === 3 && <Button style={{ width: "123px", marginLeft: "10px" }} color="dark" onClick={nextStep}>등록하기</Button>}
+        {step === 3 && <Button style={{ width: "123px", marginLeft: "10px" }} color="dark" onClick={nextStep}>수정하기</Button>}
       </Row>
       }
       { step === 4 && 
@@ -76,10 +77,10 @@ const ProductRegister = ({ registerProduct, ...restProps }) => {
       <AiOutlineCheckCircle size={100} style={{color:"#da4359"}}/>
       </Row>
       <Row className="align-items-center justify-content-center" style={{fontSize:"20px", padding:"10px 0"}}>
-      <strong>상품이 업로드 되었습니다.</strong>
+      <strong>상품이 수정 되었습니다.</strong>
       </Row>
-      <Row className="can-click align-items-center justify-content-center" style={{fontSize:"18px", color:"##6F7070", padding:"10px 0"}} onClick={registerProduct}>
-        <Button to="/product" color="white">상품조회로 이동</Button>
+      <Row className="can-click align-items-center justify-content-center" style={{fontSize:"18px", color:"##6F7070", padding:"10px 0"}}>
+        <Button href="/product" color="white">상품조회로 이동</Button>
       </Row>
       </Col>
       </Row>
@@ -88,4 +89,4 @@ const ProductRegister = ({ registerProduct, ...restProps }) => {
   );
 };
 
-export default ProductRegister;
+export default ProductEdit;

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Col, Row, Badge } from 'reactstrap'
+import { Col, Row, Badge, FormGroup, Label, Input, Button } from 'reactstrap'
 import Slider from "react-slick";
 
 import {
   MdVerticalAlignBottom,
+  MdEdit,
+  MdDelete,
 } from 'react-icons/md'
 
 import {
@@ -74,6 +76,12 @@ export const ProductSlider = ({ data }) => {
                   <Row className="align-middle" style={{ margin: 0 }}>
                     <AiFillHeart style={{ margin: "5px" }} /><div>{goods}</div>
                     <BsChat style={{ margin: "5px" }} /><div>{review}</div>
+                    <div style={{ marginLeft: "auto" }}>
+                      <Button href="/product_edit" color="white" size={20} style={{ margin: "5px" }}>
+                      <MdEdit className="can-click" size={20} style={{ margin: "5px" }} />
+                      </Button>
+                      <MdDelete className="can-click" size={20} style={{ margin: "5px" }} />
+                    </div>
                   </Row>
                   <div style={{ marginBottom: "30px" }}>
                     <ImageSlider mainImage={main_image} />
