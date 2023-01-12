@@ -212,7 +212,7 @@ const ProductManage = () => {
                   <div style={{ maxWidth: "800px", width: "100%" }}>
 
                     {productTableData.map(({ }, index) => index % 3 === 0 && (
-                      <Row style={{ margin: "1%" }} className="justify-contents-center">
+                      <Row style={{ margin: "1%" }} className="justify-content-center">
                         {/* overlay image */}
                         <div class="container">
                           <img className="box" onMouseOver={mouseOn(index)} src={productTableData[index].product_image}></img>

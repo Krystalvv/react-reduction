@@ -7,13 +7,19 @@ import {
   BsDot
 } from 'react-icons/bs';
 
+import {
+  AiOutlineCheckCircle
+} from 'react-icons/ai';
+
 
 import Page from 'components/Page';
 
 import ProductRegister1 from './ProductRegister1';
 import ProductRegister2 from './ProductRegister2';
+import ProductRegister3 from './ProductRegister3';
+import ProductRegister4 from './ProductRegister4';
 
-const ProductRegister = () => {
+const ProductRegister = ({ registerProduct, ...restProps }) => {
   const [step, setStep] = useState(0);
 
   const nextStep = () => {
@@ -26,11 +32,14 @@ const ProductRegister = () => {
     setStep(step - 1);
   }
 
+  
+
   return (
     <Page
       title="Input Groups"
       breadcrumbs={[{ name: 'Input Groups', active: true }]}
     >
+      { step < 4 && 
       <Row style={{ padding: "0 10px 0 10px", backgroundColor: "white" }}>
         <div style={{ margin: "0 10px", backgroundColor: "white" }}>
           <Row className="align-items-center" style={{ margin: "0px", padding: "20px" }}>
@@ -47,14 +56,34 @@ const ProductRegister = () => {
           </Row>
         </div>
       </Row>
+      }
       {step === 0 && <ProductRegister1 />}
       {step === 1 && <ProductRegister2 />}
+      {step === 2 && <ProductRegister3 />}
+      {step === 3 && <ProductRegister4 />}
+      { step < 4 && 
       <Row className="align-items-center" style={{ padding:"10px", margin: "0px", backgroundColor: "white" }}>
         <Button style={{ marginLeft:"auto", width: "123px" }} outline color="dark">취소</Button>
         {step > 0 && <Button style={{ marginLeft:"10px", width: "123px" }} outline color="dark" onClick={prevStep}>이전</Button>}
         {step < 3 && <Button style={{ width: "123px", marginLeft: "10px" }} color="dark" onClick={nextStep}>다음</Button>}
         {step === 3 && <Button style={{ width: "123px", marginLeft: "10px" }} color="dark" onClick={nextStep}>등록하기</Button>}
       </Row>
+      }
+      { step === 4 && 
+      <Row style={{ padding: "0 10px 0 10px", backgroundColor: "white" }}>
+      <Col style={{padding:"15% 0 15% 0"}}>
+      <Row className="align-items-center justify-content-center" style={{padding:"10px 0"}}>
+      <AiOutlineCheckCircle size={100} style={{color:"#da4359"}}/>
+      </Row>
+      <Row className="align-items-center justify-content-center" style={{fontSize:"20px", padding:"10px 0"}}>
+      <strong>상품이 업로드 되었습니다.</strong>
+      </Row>
+      <Row className="can-click align-items-center justify-content-center" style={{fontSize:"18px", color:"##6F7070", padding:"10px 0"}} onClick={registerProduct}>
+        상품조회로 이동
+      </Row>
+      </Col>
+      </Row>
+      }
     </Page>
   );
 };

@@ -84,7 +84,7 @@ const navItems = [
   { to: '/', name: '매출관리', exact: true, Icon: MdDashboard },
   { to: '/input-groups', name: '광고', exact: true, Icon: MdViewList },
   { to: '/forms', name: 'my shop', exact: true, Icon: MdNotificationsActive },
-  { to: '/button-groups', name: 'flens', exact: true, Icon: MdTextFields },
+  { to: '/tables', name: 'flens', exact: true, Icon: MdTextFields },
 ];
 
 const bem = bn.create('sidebar-large');

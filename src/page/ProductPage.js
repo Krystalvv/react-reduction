@@ -79,6 +79,10 @@ const ProductPage = () => {
     setButton(index);
   };
 
+  const registerProduct = () => {
+    setOpen(0);
+  }
+
   return (
     <Page
       title="Tables"
@@ -113,7 +117,7 @@ const ProductPage = () => {
       </div>
 
       {category === 0 && <ProductManage/>}
-      {category === 1 && <ProductRegister/>}
+      {category === 1 && <ProductRegister registerProduct={registerProduct}/>}
     </Page>
   );
 };
