@@ -23,11 +23,12 @@ import FModalHeader from './Modal/FModalHeader';
 
 import { useHistory } from "react-router-dom";
 
-const ProductMedia = ({ data, ...restProps}) => {
+const ProductMedia = ({ origin_index, ...restProps}) => {
   const [isOpen, setOpen] = useState(false);
   const [isChat, setChat] = useState(false);
   let history = useHistory();
-  const index = data.id;
+  // const index = data.id;
+  const data = orderDemoData[origin_index];
 
   const toggle = () => () => {
     setOpen(!isOpen);
@@ -42,7 +43,7 @@ const ProductMedia = ({ data, ...restProps}) => {
     <div onClick={() => {
       history.push({
         pathname: `/order-detail`,
-        state: { index : index }
+        state: { index : origin_index }
       })
     }}>
       <Media {...restProps}>
