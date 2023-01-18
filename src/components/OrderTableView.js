@@ -9,10 +9,13 @@ import {
 } from 'react-icons/md';
 
 import {
-AiOutlineFileText
+  AiOutlineFileText
 } from 'react-icons/ai';
 
+import { useHistory } from 'react-router-dom';
+
 const OrderTableView = ({ headers, rowData, ...restProps }) => {
+  const history = useHistory();
   return (
     <Table style={{ minWidth: "903px", tableLayout: "fixed" }} size="lg" hover {...restProps}>
       {/* <thead>
@@ -62,8 +65,14 @@ const OrderTableView = ({ headers, rowData, ...restProps }) => {
             <td className="align-middle text-center" style={{ width: "10%", whiteSpace: "pre-wrap" }}>{payment.method}{'\n'}{payment.cost}</td>
             <td className="align-middle" style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', wordBreak: 'break-all', overflow: 'hidden' }}>{sender.comment}</td>
             <td style={{ width: "12%" }} className="align-middle text-center">
-              <AiOutlineFileText size={30} />
-              </td>
+
+              <AiOutlineFileText size={30} onClick={() => {
+                history.push({
+                  pathname: `/order-detail`,
+                  state: { index : index }
+                })
+              }} />
+            </td>
           </tr>
         ))}
       </tbody>

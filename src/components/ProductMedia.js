@@ -27,6 +27,7 @@ const ProductMedia = ({ data, ...restProps}) => {
   const [isOpen, setOpen] = useState(false);
   const [isChat, setChat] = useState(false);
   let history = useHistory();
+  const index = data.id;
 
   const toggle = () => () => {
     setOpen(!isOpen);
@@ -38,7 +39,12 @@ const ProductMedia = ({ data, ...restProps}) => {
   }
 
   return (
-    <div>
+    <div onClick={() => {
+      history.push({
+        pathname: `/order-detail`,
+        state: { index : index }
+      })
+    }}>
       <Media {...restProps}>
         {data.trans_type === 0 &&
           <Badge color="primary" pill className="mr-1" style={{ marginTop: "2px" }}>

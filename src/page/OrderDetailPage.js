@@ -21,7 +21,7 @@ import Combobox from '../components/Part/ComboBox';
 
 import Barogo from '../assets/img/icons/barogo_logo.png';
 
-import { useParams } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { orderDemoData } from 'demos/dashboardPage';
 
 const currentItem = (x) => {
@@ -52,16 +52,16 @@ function subTitle(title) {
   )
 }
 
-const OrderDetailPage = ({ match }) => {
-  const { id } = useParams();
-  const data = orderDemoData[0]
+const OrderDetailPage = ({match}) => {
+  const location = useLocation();
+  const history = useHistory();
+  const data = orderDemoData[location.state.index]
   const delivery = ['배송(바로고)', '배송(일반)', '픽업']
 
   return (
     <Page style={{ backgroundColor: "white" }}>
-      {/* <NavLink className="nav-link can-click" to={`/order`}>
-        <MdArrowBack size={30} />
-      </NavLink> */}
+      {/* <div>{location.state.index}</div> */}
+        <MdArrowBack className='can-click' size={30} onClick={() => history.goBack()} />
       <div style={{ padding: '20px', margin: "auto", maxWidth: "1200px", backgroundColor: "white" }}>
         <div style={{ flexDirection: "row", padding: "7px" }}>
           <Row style={{ margin: "0 20px 0 20px" }}>
