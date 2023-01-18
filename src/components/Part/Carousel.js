@@ -68,14 +68,14 @@ export const ProductSlider = ({ data }) => {
   return (
     <div>
       <Slider {...settings}>
-        {data.map(({ date, goods, review, main_image, comment, ...info }, index) => (
+        {/* {data.map(({ date, goods, review, main_image, comment, ...info }, index) => ( */}
           <div>
             <Row style={{ padding: "15px" }}>
-              <Col md={6} style={{ padding: "0 15px" }}>
+              <Col md={5} style={{ padding: "0 15px" }}>
                 <div style={{ height: "100%", padding: "50px 0 50px 0", alignItems: "center", justifyContent: "center" }}>
                   <Row className="align-middle" style={{ margin: 0 }}>
-                    <AiFillHeart style={{ margin: "5px" }} /><div>{goods}</div>
-                    <BsChat style={{ margin: "5px" }} /><div>{review}</div>
+                    <AiFillHeart style={{ margin: "5px" }} /><div>{data.goods}</div>
+                    <BsChat style={{ margin: "5px" }} /><div>{data.review}</div>
                     <div style={{ marginLeft: "auto" }}>
                       <Button href="/product_edit" color="white" size={20} style={{ margin: "5px" }}>
                       <MdEdit className="can-click" size={20} style={{ margin: "5px" }} />
@@ -84,18 +84,18 @@ export const ProductSlider = ({ data }) => {
                     </div>
                   </Row>
                   <div style={{ marginBottom: "30px" }}>
-                    <ImageSlider mainImage={main_image} />
+                    <ImageSlider mainImage={data.main_image} />
                   </div>
                 </div>
               </Col>
-              <Col md={6} style={{ padding: "10px" }}>
+              <Col md={5} style={{ padding: "10px" }}>
                 {/*********************************************************************************************************/}
                 <div style={{ padding: "10px" }}>
                   <div style={{ whiteSpace: "pre-wrap" }}>
-                    {comment}
+                    {data.comment}
                   </div>
                   <div style={{ fontSize: "16px", color: "#9fa1a3" }}>
-                    {date}
+                    {data.date}
                   </div>
                 </div>
                 {/*********************************************************************************************************/}
@@ -123,18 +123,18 @@ export const ProductSlider = ({ data }) => {
 
                 <div style={{ padding: "10px" }}>
                   <div style={{ fontSize: "16px", fontWeight: "bold", margin: "5px" }}>배송형태</div>
-                  {info.barogo &&
+                  {data.barogo &&
                     <Row style={{ margin: "0px 5px" }}>
                       <img width="25px" src={Barogo} />
                       <div style={{ marginLeft: "10px" }}>{'배송(바로고)'}</div>
                     </Row>}
-                  {info.delivery &&
+                  {data.delivery &&
                     <div>
                       <Badge color="primary" pill className="mr-1" style={{ display: "fixed", height: "20px", marginTop: "2px" }}>
                         배송
                       </Badge>{'배송(기타)'}
                     </div>}
-                  {info.pickup &&
+                  {data.pickup &&
                     <div>
                       <Badge color="secondary" pill className="mr-1" style={{ display: "fixed", height: "20px", marginTop: "2px" }}>
                         픽업
@@ -146,7 +146,7 @@ export const ProductSlider = ({ data }) => {
                 <div style={{ borderTop: "1px solid #8f8f8f" }} />
                 <div style={{ padding: "10px" }}>
                   <div style={{ fontSize: "16px", fontWeight: "bold", margin: "5px" }}>상품 카테고리</div>
-                  <div style={{ margin: "5px" }}>{info.category}</div>
+                  <div style={{ margin: "5px" }}>{data.category}</div>
                 </div>
                 {/*********************************************************************************************************/}
                 <div style={{ borderTop: "1px solid #8f8f8f" }} />
@@ -154,9 +154,9 @@ export const ProductSlider = ({ data }) => {
                 <div style={{ padding: "10px" }}>
                   <div style={{ fontSize: "16px", fontWeight: "bold", margin: "5px" }}>판매가</div>
                   <Row style={{ margin: "5px" }}>
-                    <div>{info.discount_cost} &nbsp;
-                      <strong style={{ fontSize: "18px", color: "#da4359" }}>{info.discount_rate}</strong></div> &nbsp;
-                    <div style={{ textDecorationLine: "line-through" }}>{info.cost}</div>
+                    <div>{data.discount_cost} &nbsp;
+                      <strong style={{ fontSize: "18px", color: "#da4359" }}>{data.discount_rate}</strong></div> &nbsp;
+                    <div style={{ textDecorationLine: "line-through" }}>{data.cost}</div>
                   </Row>
                 </div>
 
@@ -165,7 +165,7 @@ export const ProductSlider = ({ data }) => {
 
                 <div style={{ padding: "10px" }}>
                   <div style={{ fontSize: "16px", fontWeight: "bold", margin: "5px" }}>판매 기간</div>
-                  <div style={{ margin: "5px" }}>{info.start_date} {info.end_date && ' ~ '} {info.end_date}</div>
+                  <div style={{ margin: "5px" }}>{data.start_date} {data.end_date && ' ~ '} {data.end_date}</div>
                 </div>
 
                 {/*********************************************************************************************************/}
@@ -183,7 +183,7 @@ export const ProductSlider = ({ data }) => {
               </Col>
             </Row>
           </div>
-        ))}
+        {/* ))} */}
       </Slider>
     </div>
   );

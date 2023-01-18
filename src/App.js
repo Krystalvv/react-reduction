@@ -47,6 +47,7 @@ const B2BPage = React.lazy(() => import('page/B2BPage'));
 const ProductPage = React.lazy(() => import('page/ProductPage'));
 const ProductRegister = React.lazy(() => import('page/ProductRegister'));
 const ProductEdit = React.lazy(() => import('page/ProductEdit'));
+const ProductDetailPage = React.lazy(() => import('page/ProductDetailPage'));
 const Portfolio = React.lazy(() => import('page/Portfolio'));
 
 const getBasename = () => {
@@ -105,6 +106,7 @@ class App extends React.Component {
                 <Route exact path="/product" component={ProductPage} />
                 <Route exact path="/product_register" component={ProductRegister} />
                 <Route exact path="/product_edit" component={ProductEdit} />
+                <Route exact path="/product-detail" component={ProductDetailPage} />
                 <Route exact path="/portfolio" component={Portfolio} />
               </React.Suspense>
             </MainLayout>

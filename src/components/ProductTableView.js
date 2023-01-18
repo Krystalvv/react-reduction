@@ -29,6 +29,7 @@ import {
 import {
   BsChat
 } from 'react-icons/bs'
+import { useHistory } from 'react-router-dom';
 
 const ProductTableView = ({ headers, rowData, ...restProps }) => {
   const [isOpen, setOpen] = useState(false);
@@ -43,6 +44,8 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
     setIndex(index);
   };
 
+  const history = useHistory();
+
   return (
     <Table relative style={{ minWidth: "1100px" }} hover {...restProps}>
       {/* <thead>
@@ -52,7 +55,11 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
       </thead> */}
       <tbody>
         {rowData.map(({ product_image, date, state, payment, goods, review, remain, total, ...info }, index) => (
-          <tr key={index} onClick={productView(index)}>
+          <tr key={index} onClick={() => {
+            history.push({
+              pathname: `/product-detail`,
+              state: { index : index }
+            })}}>
             <th className="align-middle" scope="row">
               <FormGroup check inline>
                 <Label check>
@@ -80,7 +87,7 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
             </td>
             <td className="align-middle text-center">{date}</td>
             <td className="align-middle text-center"><MdVerticalAlignBottom size={25} /></td>
-            <Modal
+            {/* <Modal
               isOpen={selIndex === index && isOpen}
               toggle={productView(index)}
               style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
@@ -94,7 +101,7 @@ const ProductTableView = ({ headers, rowData, ...restProps }) => {
                 </ProductSlider>
               </ModalBody>
 
-            </Modal>
+            </Modal> */}
           </tr>
 
         ))}
