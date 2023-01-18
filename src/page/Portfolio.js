@@ -241,7 +241,7 @@ const Portfolio = () => {
                             style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
                           >
                             <ModalHeader toggle={productView(selIndex)}>
-                              상품 상세 정보
+                              포트폴리오
                             </ModalHeader>
                             <ModalBody>
   
@@ -261,7 +261,7 @@ const Portfolio = () => {
                             style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
                           >
                             <ModalHeader toggle={productView(selIndex)}>
-                              상품 상세 정보
+                            포트폴리오
                             </ModalHeader>
                             <ModalBody>
 
@@ -281,7 +281,7 @@ const Portfolio = () => {
                             style={{ width: "997px", maxWidth: "80%", height: "800px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
                           >
                             <ModalHeader toggle={productView(selIndex)}>
-                              상품 상세 정보
+                            포트폴리오
                             </ModalHeader>
                             <ModalBody>
           
