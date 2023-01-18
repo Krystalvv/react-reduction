@@ -22,7 +22,7 @@ import {
 
 import OrderTableView from 'components/OrderTableView';
 import {
-  orderTableData,
+  orderDemoData,
 } from 'demos/dashboardPage';
 import Combobox from '../components/Part/ComboBox';
 
@@ -183,7 +183,7 @@ const OrderPage = () => {
             </div>
 
             <OrderTableView
-              rowData={orderTableData} />
+              rowData={orderDemoData} />
             <Row style={{ margin: "0px" }}>
               <Button style={{ width: "123px"}} outline color="dark">전체선택</Button>
               <Button style={{ width: "123px", marginLeft: "10px" }} outline color="dark">선택삭제</Button>

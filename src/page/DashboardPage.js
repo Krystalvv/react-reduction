@@ -20,6 +20,7 @@ import {
   reviewData,
   todosData,
   userProgressTableData,
+  orderDemoData,
 } from 'demos/dashboardPage';
 import React from 'react';
 import Calendar from 'react-calendar';
@@ -154,9 +155,12 @@ class DashboardPage extends React.Component {
                 <Card style={{ height: "100%" }}>
                   <CardHeader>주문내역</CardHeader>
                   <CardBody>
-                    {dashboardOrder.map(({ time, content }, index) => (
+                  {orderDemoData.map((value, index) => (
+                    <ProductMedia data={value}/>
+                  ))}
+                    {/* {orderDemoData.map((value, index) => (
                       <div>
-                        <div style={{fontWeight:"bold", borderLeft: "1px dashed #d9d9d9", borderBottom:"1px solid #d7d7d7", backgroundColor:"", padding:"5px"}}>{time}</div>
+                        <div style={{fontWeight:"bold", borderLeft: "1px dashed #d9d9d9", borderBottom:"1px solid #d7d7d7", backgroundColor:"", padding:"5px"}}>{value.time}</div>
                         <div style={{borderLeft: "1px dashed #d9d9d9", padding:"10px" }}>
                         {
                           content.map(({ id, name, type, product, description, time, state}) => (
@@ -175,7 +179,7 @@ class DashboardPage extends React.Component {
                       </div>
                       </div>
 
-                    ))}
+                    ))} */}
 
 
 

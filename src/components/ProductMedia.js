@@ -11,18 +11,22 @@ import {
   ModalHeader,
   Row,
   Col,
-  Input
+  Input,
+  NavLink as BSNavLink,
 } from 'reactstrap';
 
 import Typography from 'components/Typography';
 
 import BubbleChat from 'assets/img/icons/bubble_chat.svg';
-import { dashboardOrderDetail, chatData } from 'demos/dashboardPage';
+import { orderDemoData, chatData } from 'demos/dashboardPage';
 import FModalHeader from './Modal/FModalHeader';
 
-const ProductMedia = ({ pk, type, name, product, description, time, state, detailData, ...restProps }) => {
+import { useHistory } from "react-router-dom";
+
+const ProductMedia = ({ data, ...restProps}) => {
   const [isOpen, setOpen] = useState(false);
   const [isChat, setChat] = useState(false);
+  let history = useHistory();
 
   const toggle = () => () => {
     setOpen(!isOpen);
@@ -36,12 +40,12 @@ const ProductMedia = ({ pk, type, name, product, description, time, state, detai
   return (
     <div>
       <Media {...restProps}>
-        {type === 0 &&
+        {data.trans_type === 0 &&
           <Badge color="primary" pill className="mr-1" style={{ marginTop: "2px" }}>
             배송
           </Badge>
         }
-        {type === 1 &&
+        {data.trans_type === 1 &&
           <Badge color="secondary" pill className="mr-1" style={{ marginTop: "2px" }}>
             픽업
           </Badge>
@@ -50,97 +54,22 @@ const ProductMedia = ({ pk, type, name, product, description, time, state, detai
           <Row>
             <Media body className="overflow-hidden" style={{ marginLeft: "10px", marginBottom: "-5px" }}>
               <Media state className="text-truncate">
-                {time}
+                {data.time}
               </Media>
               <Media className="text-truncate">
-                {name} 님 | {product}
+                {data.sender.name} 님 | {data.product.name}
               </Media>
-              <p className="text-muted text-truncate"><img style={{ margin: "5px", width: "16px" }} src={BubbleChat} />{description}</p>
+              <p className="text-muted text-truncate"><img style={{ margin: "5px", width: "16px" }} src={BubbleChat} />{data.sender.comment}</p>
             </Media>
-            <Media state className="align-self-center" style={{ marginRight: "0px" }}>
-              <Typography>{state}</Typography>
+            <Media state className="align-self-center" style={{ marginRight: "20px" }}>
+              <Typography>{data.order.state}</Typography>
             </Media>
           </Row>
         </div>
 
 
       </Media>
-      <Modal
-        isOpen={isOpen}
-        toggle={toggle()}
-        style={{ width: "750px", maxWidth: "90%", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-      >
-        <div style={{ flexDirection: "row", padding: "10px", backgroundColor: "#d7d7d7" }}>
-          <Row style={{ margin: "0 20px 0 20px" }}>
-            <div style={{ fontWeight: "bold" }}>주문 정보 상세</div>
-            <div style={{ marginLeft: "auto" }}>주문관리로 이동</div>
-          </Row>
-        </div>
-        {dashboardOrderDetail.map(({ image, product, option, count, product_number, state, description, name,
-          custom_number, recipient, rec_number, reservation, address, zipCode, method, cost, fee, total_cost }, index) => (pk === index &&
-            <ModalBody className="none_scrollbar" style={{ padding: "1px", height: '610px', overflowX: 'hidden', overflowY: 'scroll' }}>
-              <Row style={{ margin: "10px" }}>
-                <Col md={4}>
-                  <img src={image} style={{ display: "block", width: "100%", height: "auto", margin: "10px" }}></img>
-                </Col>
-                <Col md={8}>
-                  <Row style={{ margin: "10px" }}><div>상품명</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{product}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>옵션</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{option}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>수량</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{count}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>상품번호</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{product_number}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>상태</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{state}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>요청사항</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{description}</div></Row>
-                </Col>
-              </Row>
 
-              <FModalHeader title={'주문자 정보'} />
-              <Row style={{ margin: "10px" }}>
-                <Col md={12}>
-                  <Row style={{ margin: "10px" }}><div>주문자</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{name}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>전화</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{custom_number}</div></Row>
-                </Col>
-              </Row>
-
-              <FModalHeader title={'배송 정보'} />
-              <Row style={{ margin: "10px" }}>
-                <Col md={6}>
-                  <Row style={{ margin: "10px" }}><div>픽업 / 배송</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{type === 0 ? "배송" : "픽업"}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>받는 분</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{recipient}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>전화</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{rec_number}</div></Row>
-                </Col>
-                <Col md={6}>
-                  <Row style={{ margin: "10px" }}><div>예약날짜</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{reservation}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>주소</div>
-                    <Col style={{ padding: "0px", marginTop: "0px", marginRight: "0px", textAlign: "right" }}><div>{zipCode}</div><div>{address}</div></Col>
-                  </Row>
-                </Col>
-              </Row>
-              <FModalHeader title={'결제 정보'} />
-              <Row style={{ margin: "10px" }}>
-                <Col md={12}>
-                  <Row style={{ margin: "10px" }}><div>방법</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{method}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>금액</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{cost}</div></Row>
-                  <Row style={{ margin: "10px" }}><div>배송비</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{fee}</div></Row>
-                </Col>
-              </Row>
-
-              <FModalHeader title={'총 결제 금액'} />
-              <Row style={{ margin: "10px" }}>
-                <Col md={12}>
-                  <Row style={{ margin: "10px" }}><div>총 결제 금액</div><div style={{ marginLeft: "auto", textAlign: "right" }}>{total_cost}</div></Row>
-                </Col>
-              </Row>
-            </ModalBody>
-        ))}
-        <ModalFooter>
-          <Button outline color="dark" onClick={toggle()}>
-            닫기
-          </Button>
-          <Button outline color="dark" onClick={chatting()}>
-            채팅하기
-          </Button>
-        </ModalFooter>
-      </Modal>
       <Modal
         isOpen={isChat}
         toggle={chatting()}
@@ -148,9 +77,9 @@ const ProductMedia = ({ pk, type, name, product, description, time, state, detai
       >
         <ModalHeader toggle={chatting()}>
           <Row style={{ marginLeft: "10px" }}>
-            <div>{name}</div>
+            <div>{data.sender.name}</div>
             {
-              dashboardOrderDetail.map(({ custom_number }, index) => (pk === index && <div style={{ marginLeft: "10px" }}>{custom_number}</div>))
+              orderDemoData.map(({ custom_number }, index) => (data.id === index && <div style={{ marginLeft: "10px" }}>{custom_number}</div>))
             }
           </Row>
         </ModalHeader>
