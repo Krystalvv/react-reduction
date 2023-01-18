@@ -29,6 +29,7 @@ import {
 } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import {
+  Button,
   // UncontrolledTooltip,
   Collapse,
   Nav,
@@ -91,25 +92,25 @@ const bem = bn.create('sidebar-large');
 
 class Sidebar extends React.Component {
   state = {
-    isOpenComponents: true,
-    isOpenContents: true,
-    isOpenPages: true,
     activeItem: 0,
   };
 
-  setActiveItem(index) {
-    this.setState({activeItem : index});
+  isActive(index) {
+    let temp = JSON.parse(localStorage.getItem('sideIndex'));
+    if(index === temp)
+    {
+      return true
+    }
+    else
+    {
+      return false
+    }
   }
 
-  handleClick = name => () => {
-    this.setState(prevState => {
-      const isOpen = prevState[`isOpen${name}`];
-
-      return {
-        [`isOpen${name}`]: !isOpen,
-      };
-    });
-  };
+  setActiveItem(index) {
+    this.setState({activeItem : index});
+    localStorage.setItem('sideIndex', index);
+  }
 
   render() {
     return (
@@ -127,8 +128,8 @@ class Sidebar extends React.Component {
                   exact={exact}
                   onClick={() => this.setActiveItem(index)}
                 >
-                  <Icon className={index === this.state.activeItem ?  bem.e('nav-item-icon__active') : bem.e('nav-item-icon')} />
-                  <span className={index === this.state.activeItem ?  bem.e('nav-name__active') : bem.e('nav-name')}>{name}</span>
+                  <Icon className={ this.isActive(index) ?  bem.e('nav-item-icon__active') : bem.e('nav-item-icon')} />
+                  <span className={ this.isActive(index) ?  bem.e('nav-name__active') : bem.e('nav-name')}>{name}</span>
                 </BSNavLink>
               </NavItem>
             ))}
