@@ -12,7 +12,7 @@ const ProductDetailPage = ({ match }) => {
   const data = productTableData[location.state.index]
 
   return (
-    <div style={{ backgroundColor: "white", height:"100vh" }}>
+    <div style={{ backgroundColor: "white"}}>
       <MdArrowBack className='can-click' size={30} onClick={() => history.goBack()} />
       <ProductSlider data={data}>
 
