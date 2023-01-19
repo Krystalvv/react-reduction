@@ -31,6 +31,140 @@ import Flower6 from 'assets/img/demo/flower6.jpeg'
 import Flower7 from 'assets/img/demo/flower7.jpeg'
 import Flower8 from 'assets/img/demo/flower8.jpeg'
 
+export const goodsDemoData = [
+  {
+    profile: user1Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user2Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user3Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user4Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user5Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user6Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user7Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user8Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user9Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user10Image,
+    grade: 'Green',
+    name: '이남남'
+  },
+  {
+    profile: user11Image,
+    grade: 'Green',
+    name: '이남남'
+  }
+]
+
+export const reviewDemoData = [
+  {
+    user: {
+      profile: user1Image,
+      name: '이남남'
+    },
+    date: '2023.01.15',
+    images: [Flower1, Flower2, Flower3, Flower4, Flower5],
+    comment: 'adfpoajpojoj dokfoajeiojin djeiji djsi diajioweiwruoq\n'
+    + 'asdlfkkoeko wiufajcm ododo eow djdiajcijso\n'
+    + 'co eiaksk cciaheic kdkkq ddkkkscbdhu.',
+    reply: [{
+      user: {
+        profile: user2Image,
+        name: '아미화'
+      },
+      date: '2023.01.15',
+      comment: 'adfpoajpojoj dokfoajeiojin djeiji djsi diajioweiwruoq\n'
+      + 'asdlfkkoeko wiufajcm ododo eow djdiajcijso\n'
+      + 'co eiaksk cciaheic kdkkq ddkkkscbdhu.',
+    }]
+
+  },
+  {
+    user: {
+      profile: user3Image,
+      name: '김또또'
+    },
+    date: '2023.01.15',
+    images: [Flower6, Flower7, Flower8],
+    comment: 'adfpoajpojoj dokfoajeiojin djeiji djsi diajioweiwruoq\n'
+    + 'asdlfkkoeko wiufajcm ododo eow djdiajcijso\n'
+    + 'co eiaksk cciaheic kdkkq ddkkkscbdhu.',
+    reply: [{
+      user: {
+        profile: user4Image,
+        name: '박수정'
+      },
+      date: '2023.01.15',
+      comment: 'adfpoajpojoj dokfoajeiojin djeiji djsi diajioweiwruoq\n'
+      + 'asdlfkkoeko wiufajcm ododo eow djdiajcijso\n'
+      + 'co eiaksk cciaheic kdkkq ddkkkscbdhu.',
+    }]
+
+  }
+]
+
+export const productTableData = [
+  {
+    date: '2023. 01. 07',
+    state: '판매중',
+    product_image: [Flower1],
+    main_image: Flower1,
+    images: [Flower1, Flower2, Flower3, Flower4, Flower5, Flower6],
+    order_number: '220822A01',
+    order_product: '장미안개 꽃다발',
+    start_date: '2023. 01. 07',
+    end_date: '2023.01.31',
+    discount_rate: '10%',
+    cost: '60,000원',
+    discount_cost: '54,000원',
+    payment: '10% 60,000원\n54,000원',
+    goods: 108,
+    review: 20,
+    remain: 10,
+    total: 20,
+    comment: "핑크 튤립 + 안개 꽃의 조합입니다🌸\n사진은 보정하지 않습니다.\n꽃 컬러가 너무 예뻐요:)",
+    barogo: true,
+    delivery: true,
+    pickup: true,
+    category: '꽃 > 꽃다발',
+    goodsInfo: goodsDemoData,
+    reviewInfo : reviewDemoData,
+  },
+];
+
 export const dashboardOrder = [
   {
     time: '9:00 am',
@@ -385,102 +519,6 @@ export const orderDemoData = [
       weather: '800원',
       vat: '380원',
     },
-  },
-];
-
-export const productTableData = [
-  {
-    date: '2023. 01. 07',
-    state: '판매중',
-    product_image: [Flower1],
-    main_image: Flower1,
-    order_number: '220822A01',
-    order_product: '장미안개 꽃다발',
-    start_date: '2023. 01. 07',
-    end_date: '2023.01.31',
-    discount_rate: '10%',
-    cost: '60,000원',
-    discount_cost: '54,000원',
-    payment: '10% 60,000원\n54,000원',
-    goods: 108,
-    review: 20,
-    remain: 10,
-    total: 20,
-    comment: "핑크 튤립 + 안개 꽃의 조합입니다🌸\n사진은 보정하지 않습니다.\n꽃 컬러가 너무 예뻐요:)",
-    barogo: true,
-    delivery: true,
-    pickup: true,
-    category: '꽃 > 꽃다발'
-  },
-  {
-    date: '2023. 01. 07',
-    state: '판매중',
-    product_image: Flower2,
-    order_number: '220822A01',
-    order_product: '장미안개 꽃다발',
-    start_date: '2023. 01. 07',
-    end_date: '2023.01.31',
-    payment: '10% 60,000원\n54,000원',
-    goods: 108,
-    review: 20,
-    remain: 10,
-    total: 20,
-  },
-  {
-    date: '2023. 01. 07',
-    state: '판매중',
-    product_image: Flower3,
-    order_number: '220822A01',
-    order_product: '장미안개 꽃다발',
-    start_date: '2023. 01. 07',
-    end_date: '2023.01.31',
-    payment: '10% 60,000원\n54,000원',
-    goods: 108,
-    review: 20,
-    remain: 10,
-    total: 20,
-  },
-  {
-    date: '2023. 01. 07',
-    state: '판매마감',
-    product_image: Flower4,
-    order_number: '220822A01',
-    order_product: '장미안개 꽃다발',
-    start_date: '2023. 01. 07',
-    end_date: '2023.01.31',
-    payment: '10% 60,000원\n54,000원',
-    goods: 108,
-    review: 20,
-    remain: 10,
-    total: 20,
-  },
-  {
-    date: '2023. 01. 07',
-    state: '품절',
-    product_image: Flower5,
-    order_number: '220822A01',
-    order_product: '장미안개 꽃다발',
-    start_date: '2023. 01. 07',
-    end_date: '2023.01.31',
-    payment: '10% 60,000원\n54,000원',
-    goods: 108,
-    review: 20,
-    remain: 10,
-    total: 20,
-  },
-  {
-    date: '2023. 01. 07',
-    state: '판매중',
-    product_image: Flower6,
-    order_number: '220822A01',
-    order_product: '장미안개 꽃다발',
-    start_date: '2023. 01. 07',
-    end_date: '2023.01.31',
-    payment: '10% 60,000원\n54,000원',
-    goods: 108,
-    review: 20,
-    remain: 10,
-    total: 20,
   },
 ];
 

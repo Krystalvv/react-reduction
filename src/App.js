@@ -105,7 +105,7 @@ class App extends React.Component {
                 <Route exact path="/b2b" component={B2BPage} />
                 <Route exact path="/product" component={ProductPage} />
                 <Route exact path="/product_register" component={ProductRegister} />
-                <Route exact path="/product_edit" component={ProductEdit} />
+                <Route exact path="/product-edit" component={ProductEdit} />
                 <Route exact path="/product-detail" component={ProductDetailPage} />
                 <Route exact path="/portfolio" component={Portfolio} />
               </React.Suspense>

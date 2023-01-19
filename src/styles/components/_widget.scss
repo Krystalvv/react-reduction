@@ -8,3 +8,10 @@
     justify-content: center;
   }
 }
+
+.scroll-bar{
+  &::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+}
