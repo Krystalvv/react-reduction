@@ -436,7 +436,7 @@ export const ImageSlider = ({images}) => {
           <img src={images[index]} />
         ))}
       </Slider>
-      <Row className="justify-content-center" style={{ margin: "40px 20px" }}>
+      <Row className="justify-content-center" style={{ margin: "40px 0" }}>
         {images.map(({ }, index) => (
           <img src={images[index]} style={{ width: "50px", height: "50px", margin: "5px" }} />
         ))}

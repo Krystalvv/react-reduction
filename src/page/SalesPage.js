@@ -43,7 +43,7 @@ import { ProductSlider } from '../components/Part/Carousel';
 
 import Combobox from '../components/Part/ComboBox';
 
-const Portfolio = () => {
+const Sales = () => {
   const searchDate = ['주문 접수 일', '예약일'];
   const categoryDep1 = ['꽃', '식물'];
   const categoryDep2 = ['전체', '꽃다발', '꽃바구니', '화분'];
@@ -312,4 +312,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Sales;
