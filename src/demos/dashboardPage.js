@@ -31,6 +31,298 @@ import Flower6 from 'assets/img/demo/flower6.jpeg'
 import Flower7 from 'assets/img/demo/flower7.jpeg'
 import Flower8 from 'assets/img/demo/flower8.jpeg'
 
+export const salesData = [
+  {
+    private_key: 11,
+    date: '2023.01.14',
+    type: '매입',
+    product_name: '양재 꽃시장',
+    total_cost: '105,000',
+    payment: '카드결제',
+    method: '플릿'
+  },
+  {
+    private_key: 10,
+    date: '2023.01.14',
+    type: '매입',
+    product_name: '양재 꽃시장',
+    total_cost: '105,000',
+    payment: '카드결제',
+    method: '플릿'
+  },
+  {
+    private_key: 9,
+    date: '2023.01.14',
+    type: '매입',
+    product_name: '양재 꽃시장',
+    total_cost: '105,000',
+    payment: '카드결제',
+    method: '가계부'
+  },
+  {
+    private_key: 8,
+    date: '2023.01.14',
+    type: '매입',
+    product_name: '양재 꽃시장',
+    total_cost: '105,000',
+    payment: '카드결제',
+    method: '가계부'
+  },
+  {
+    private_key: 7,
+    date: '2023.01.14',
+    type: '매입',
+    product_name: '양재 꽃시장',
+    total_cost: '105,000',
+    payment: '카드결제',
+    method: '가계부'
+  },
+  {
+    private_key: 6,
+    date: '2023.01.14',
+    type: '매입',
+    product_name: '양재 꽃시장',
+    total_cost: '105,000',
+    payment: '카드결제',
+    method: '가계부'
+  },
+  {
+    private_key: 5,
+    date: '2023.01.14',
+    type: '매출',
+    order_number: '220822A01',
+    product_name: '장미안개 꽃다발',
+    total_cost: '35,000',
+    payment: '카드결제',
+    method: '가계부'
+  },
+  {
+    private_key: 4,
+    date: '2023.01.14',
+    type: '매출',
+    order_number: '220822A01',
+    product_name: '장미안개 꽃다발',
+    total_cost: '35,000',
+    payment: '카드결제',
+    method: '가계부'
+  },
+  {
+    private_key: 3,
+    date: '2023.01.14',
+    type: '매출',
+    order_number: '220822A01',
+    product_name: '장미안개 꽃다발',
+    total_cost: '35,000',
+    payment: '카드결제',
+    method: '플릿'
+  },
+  {
+    private_key: 2,
+    date: '2023.01.14',
+    type: '매출',
+    order_number: '220822A01',
+    product_name: '장미안개 꽃다발',
+    total_cost: '35,000',
+    payment: '카드결제',
+    method: '플릿'
+  },
+  {
+    private_key: 1,
+    date: '2023.01.14',
+    type: '매출',
+    order_number: '220822A01',
+    product_name: '장미안개 꽃다발',
+    total_cost: '35,000',
+    payment: '카드결제',
+    method: '플릿'
+  },
+  {
+    private_key: 0,
+    date: '2023.01.14',
+    type: '매출',
+    order_number: '220822A01',
+    product_name: '장미안개 꽃다발',
+    total_cost: '35,000',
+    payment: '카드결제',
+    method: '플릿'
+  },
+]
+
+export const barChartOptions = {
+  animation: {
+    duration: 0
+  },
+  tooltips: {
+    enabled: false
+  },
+  legend: {
+    display: false,
+  },
+  scales: {
+    xAxes: [
+      {
+        margin:10,
+        ticks: {
+          fontSize: 16,
+        },
+        barThickness: window.innerWidth > 700 ? 30 : 10,
+        // barPercentage: 0.9,
+        scaleLabel: {
+          display: false,
+        },
+        gridLines: {
+          display: false,
+        },
+      },
+    ],
+    yAxes: [
+      {
+        ticks: {
+          display: true,
+        },
+        scaleLabel: {
+          display: false,
+        },
+        gridLines: {
+          display: true,
+        },
+      },
+    ],
+  },
+  tooltips: {
+    displayColors: false,
+    backgroundColor: '#DA4359',
+    mode: 'x',
+    bodyFontSize: 18,
+    callbacks: {
+      title: function () { }
+    }
+  },
+
+};
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const WEEKS = ['1st', '2nd', '3rd', '4th', '5th'];
+const MONTHS = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+
+export const DayData = (moreData = {}, moreData2 = {}) => {
+  return {
+    labels: DAYS,
+    datasets: [
+      {
+        label: '매입',
+        backgroundColor: "#C1DAFF",
+        borderColor: "#C1DAFF",
+        borderWidth: 1,
+        data: [
+          44,
+          59,
+          19,
+          32,
+          18,
+          32,
+          35,
+        ],
+      },
+      {
+        label: '매출',
+        backgroundColor: "#3A89FF",
+        borderColor: "#3A89FF",
+        borderWidth: 1,
+        data: [
+          106,
+          124,
+          76,
+          96,
+          24,
+          42,
+          102,
+        ],
+      },
+      
+    ],
+  };
+};
+
+export const WeekData = (moreData = {}, moreData2 = {}) => {
+  return {
+    labels: WEEKS,
+    datasets: [
+      {
+        label: '매압',
+        backgroundColor: "#C1DAFF",
+        borderColor: "#C1DAFF",
+        borderWidth: 1,
+        data: [
+          44,
+          59,
+          19,
+          32,
+          18,
+        ],
+      },
+      {
+        label: '매출',
+        backgroundColor: "#3A89FF",
+        borderColor: "#3A89FF",
+        borderWidth: 1,
+        data: [
+          106,
+          124,
+          76,
+          96,
+          24,
+        ],
+      },
+      
+    ],
+  };
+};
+
+export const MonthData = (moreData = {}, moreData2 = {}) => {
+  return {
+    labels: MONTHS,
+    datasets: [
+      {
+        label: '매압',
+        backgroundColor: "#C1DAFF",
+        borderColor: "#C1DAFF",
+        borderWidth: 1,
+        data: [
+          44,
+          59,
+          19,
+          32,
+          18,
+          44,
+          59,
+          19,
+          32,
+          18,
+        ],
+      },
+      {
+        label: '매출',
+        backgroundColor: "#3A89FF",
+        borderColor: "#3A89FF",
+        borderWidth: 1,
+        data: [
+          106,
+          124,
+          76,
+          96,
+          24,
+          106,
+          124,
+          76,
+          96,
+          24,
+        ],
+      },
+      
+    ],
+  };
+};
+
 export const goodsDemoData = [
   {
     profile: user1Image,

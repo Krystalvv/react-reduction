@@ -82,7 +82,7 @@ const navItems = [
   { to: '/b2b', name: '수발주관리', exact: true, Icon: MdAccountCircle },
   { to: '/product', name: '상품관리', exact: true, Icon: MdBorderAll },
   { to: '/portfolio', name: '포트폴리오', exact: true, Icon: MdBrush },
-  { to: '/sales', name: '매출관리', exact: true, Icon: MdViewCarousel },
+  { to: '/sales/total/0', name: '매출관리', exact: true, Icon: MdViewCarousel },
   // { to: '/', name: '매출관리', exact: true, Icon: MdDashboard },
   // { to: '/input-groups', name: '광고', exact: true, Icon: MdViewList },
   // { to: '/forms', name: 'my shop', exact: true, Icon: MdNotificationsActive },

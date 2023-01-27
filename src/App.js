@@ -49,6 +49,7 @@ const ProductRegister = React.lazy(() => import('page/ProductRegister'));
 const ProductEdit = React.lazy(() => import('page/ProductEdit'));
 const ProductDetailPage = React.lazy(() => import('page/ProductDetailPage'));
 const Portfolio = React.lazy(() => import('page/Portfolio'));
+const Sales = React.lazy(() => import('page/SalesPage'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -108,6 +109,7 @@ class App extends React.Component {
                 <Route exact path="/product-edit" component={ProductEdit} />
                 <Route exact path="/product-detail" component={ProductDetailPage} />
                 <Route exact path="/portfolio" component={Portfolio} />
+                <Route exact path="/sales/*" component={Sales} />
               </React.Suspense>
             </MainLayout>
             <Redirect to="/" />

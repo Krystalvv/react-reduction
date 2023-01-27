@@ -3,11 +3,12 @@
 
   &__icon-search {
     position: absolute;
-    left: 8px;
+    right: 8px;
   }
 
   &__input {
     /* stylelint-disable-next-line */
-    padding-left: 35px !important;
+    padding-left: 10px !important;
+    border-color: #8c8c8c;
   }
 }

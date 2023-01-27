@@ -1,0 +1,42 @@
+.sales_container{
+  padding: 10px 10px 0 10px;
+  background-color: white;
+}
+
+.sales_title {
+  margin: 5px;
+  font-size: 1.2rem;
+}
+
+.sales_content {
+  margin: 5px;
+  font-size: 1.0rem;
+}
+
+.sales_row {
+  justify-content: space-between;
+}
+
+.sales_row_right {
+  justify-content: end;
+  align-items: center;
+  margin: 0;
+}
+
+.sales_row_center {
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  &__popup {
+    padding: 5px 5px 15px 5px;
+  }
+}
+
+.sales_input {
+  border-color: #8c8c8c;
+  margin: 10px;
+  width: 230px;
+  height: 28px;
+  font-size: 1.0rem;
+}
