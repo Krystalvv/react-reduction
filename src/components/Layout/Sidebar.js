@@ -129,7 +129,7 @@ class Sidebar extends React.Component {
                   exact={exact}
                   onClick={() => this.setActiveItem(index)}
                 >
-                  <Icon className={ this.isActive(index) ?  bem.e('nav-item-icon__active') : bem.e('nav-item-icon')} />
+                  {/* <Icon className={ this.isActive(index) ?  bem.e('nav-item-icon__active') : bem.e('nav-item-icon')} /> */}
                   <span className={ this.isActive(index) ?  bem.e('nav-name__active') : bem.e('nav-name')}>{name}</span>
                 </BSNavLink>
               </NavItem>

@@ -38,8 +38,10 @@ import {
 import Combobox from '../components/Part/ComboBox';
 import ProductManage from './ProductManage';
 import ProductRegister from './ProductRegister';
+import { useHistory } from 'react-router-dom';
 
 const ProductPage = () => {
+  const history = useHistory();
   const searchDate = ['주문 접수 일', '예약일'];
   const categoryDep1 = ['꽃', '식물'];
   const categoryDep2 = ['전체', '꽃다발', '꽃바구니', '화분'];
@@ -119,6 +121,18 @@ const ProductPage = () => {
 
       {category === 0 && <ProductManage/>}
       {category === 1 && <ProductRegister registerProduct={registerProduct}/>}
+      {category === 2 &&
+              <Row style={{ padding: "0 15px 0 15px", color:"#dadada" }}>
+              <Col style={{ padding: "15% 0 15% 0", backgroundColor: "white",}}>
+                <Row className="align-items-center justify-content-center" style={{ fontSize: "3rem", padding: "10px 0" }}>
+                  <strong>To Be Continue...</strong>
+                </Row>
+                <Row className="can-click align-items-center justify-content-center" style={{ fontSize: "18px", color: "##6F7070", padding: "10px 0" }} onClick={() => history.goBack()}>
+                  <Button to="/product" color="white">이전으로 돌아가기</Button>
+                </Row>
+              </Col>
+            </Row>
+      }
     </Page>
   );
 };

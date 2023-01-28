@@ -25,8 +25,10 @@ import {
   orderDemoData,
 } from 'demos/dashboardPage';
 import Combobox from '../components/Part/ComboBox';
+import { useHistory } from 'react-router-dom';
 
 const OrderPage = () => {
+  const history = useHistory();
   const searchDate = ['주문 접수 일', '예약일'];
   const categoryDep1 = ['꽃', '식물'];
   const categoryDep2 = ['전체', '꽃다발', '꽃바구니', '화분'];
@@ -83,123 +85,142 @@ const OrderPage = () => {
       </div>
 
       {/* filter */}
-      <div style={{ padding: "0 20px", backgroundColor: "white" }}>
-        <Col style={{ padding: "10px", borderTop: "1px solid #8f8f8f", borderBottom: "1px solid #8f8f8f" }}>
-          <Row className="align-items-center" style={{ margin: "0px" }}>
-            <div style={{ width: "100px" }}>{'조회기간'}</div>
-            <Combobox items={searchDate} currentItem={currentItem}/>
-            <div className="can-click" onClick={toggleMenu} style={{ marginLeft: "auto", marginRight: "10px" }}>{isOpen ? <MdUnfoldLess style={{ color: "#da4359" }} size={25} /> : <MdUnfoldMore size={25} />}</div>
-          </Row>
-          <Row style={{ marginLeft: "100px" }}>
-            <ButtonGroup style={{ margin: "10px" }} size="sm">
-              {buttons.map(({ }, index) => (
-                <Button onClick={toggleButtonGroup(index)} outline color={index === selButton ? "secondary" : "dark"} className="button_item">{buttons[index]}</Button>
-
-              ))}
-            </ButtonGroup>
-            <Row className="align-items-center" style={{ margin: "0px" }}>
-              <Input
-                type="date"
-                name="date"
-                id="exampleDate"
-                placeholder="date placeholder"
-                className="align-middle"
-                style={{ margin: "10px", width: "237px", height: "28px", fontSize: "14px" }}
-              /><div className="text-center" style={{ width: "20px" }}>{'~'}</div>
-              <Input
-                type="date"
-                name="date"
-                id="exampleDate"
-                placeholder="date placeholder"
-                style={{ margin: "10px", width: "237px", height: "28px", fontSize: "14px" }}
-              />
-            </Row>
-          </Row>
-          {isOpen &&
-            <Row className="align-items-center" style={{ margin: "0px" }}>
-              <div style={{ width: "100px" }}>{'카테고리'}</div>
-              <Row style={{ margin: "0px" }}>
-                <Combobox items={categoryDep1} currentItem={currentItem}/>
-                <Combobox items={categoryDep2} currentItem={currentItem}/>
-              </Row>
-            </Row>
-          }
-          {isOpen &&
-            <div>
+      {category === 0 &&
+        <div>
+          <div style={{ padding: "0 20px", backgroundColor: "white" }}>
+            <Col style={{ padding: "10px", borderTop: "1px solid #8f8f8f", borderBottom: "1px solid #8f8f8f" }}>
               <Row className="align-items-center" style={{ margin: "0px" }}>
-                <div style={{ width: "100px" }}>{'상세검색'}</div>
-                <Combobox items={detailSearch} currentItem={currentItem}/>
+                <div style={{ width: "100px" }}>{'조회기간'}</div>
+                <Combobox items={searchDate} currentItem={currentItem} />
+                <div className="can-click" onClick={toggleMenu} style={{ marginLeft: "auto", marginRight: "10px" }}>{isOpen ? <MdUnfoldLess style={{ color: "#da4359" }} size={25} /> : <MdUnfoldMore size={25} />}</div>
               </Row>
+              <Row style={{ marginLeft: "100px" }}>
+                <ButtonGroup style={{ margin: "10px" }} size="sm">
+                  {buttons.map(({ }, index) => (
+                    <Button onClick={toggleButtonGroup(index)} outline color={index === selButton ? "secondary" : "dark"} className="button_item">{buttons[index]}</Button>
 
-              <Row className="align-items-center" style={{ margin: "0px" }}>
-                <div className="can-click" style={{ marginLeft: "auto" }} onClick={reset}>
-                  <MdSettingsBackupRestore style={{ color: "#da4359" }} />{' 초기화'}
+                  ))}
+                </ButtonGroup>
+                <Row className="align-items-center" style={{ margin: "0px" }}>
+                  <Input
+                    type="date"
+                    name="date"
+                    id="exampleDate"
+                    placeholder="date placeholder"
+                    className="align-middle"
+                    style={{ margin: "10px", width: "237px", height: "28px", fontSize: "14px" }}
+                  /><div className="text-center" style={{ width: "20px" }}>{'~'}</div>
+                  <Input
+                    type="date"
+                    name="date"
+                    id="exampleDate"
+                    placeholder="date placeholder"
+                    style={{ margin: "10px", width: "237px", height: "28px", fontSize: "14px" }}
+                  />
+                </Row>
+              </Row>
+              {isOpen &&
+                <Row className="align-items-center" style={{ margin: "0px" }}>
+                  <div style={{ width: "100px" }}>{'카테고리'}</div>
+                  <Row style={{ margin: "0px" }}>
+                    <Combobox items={categoryDep1} currentItem={currentItem} />
+                    <Combobox items={categoryDep2} currentItem={currentItem} />
+                  </Row>
+                </Row>
+              }
+              {isOpen &&
+                <div>
+                  <Row className="align-items-center" style={{ margin: "0px" }}>
+                    <div style={{ width: "100px" }}>{'상세검색'}</div>
+                    <Combobox items={detailSearch} currentItem={currentItem} />
+                  </Row>
+
+                  <Row className="align-items-center" style={{ margin: "0px" }}>
+                    <div className="can-click" style={{ marginLeft: "auto" }} onClick={reset}>
+                      <MdSettingsBackupRestore style={{ color: "#da4359" }} />{' 초기화'}
+                    </div>
+                  </Row>
                 </div>
-              </Row>
-            </div>
-          }
-        </Col>
+              }
+            </Col>
 
-        <Row className="align-items-center justify-content-center" style={{ padding: "10px" }}>
-          <Button outline color="secondary" style={{ backgroundColor: "white", color: "black", borderRadius: "30px", padding: "5px 30px 5px 30px" }}>검색</Button>
+            <Row className="align-items-center justify-content-center" style={{ padding: "10px" }}>
+              <Button outline color="secondary" style={{ backgroundColor: "white", color: "black", borderRadius: "30px", padding: "5px 30px 5px 30px" }}>검색</Button>
+            </Row>
+
+          </div>
+          <Row>
+            <Col>
+              <div style={{ padding: "20px", backgroundColor: "white" }}>
+                <Form style={{ margin: "10px" }}>
+                  <FormGroup check inline>
+                    <Label check>
+                      <Input type="radio" className="radio_button" />전체
+                    </Label>
+                  </FormGroup>
+                  <FormGroup check inline>
+                    <Label check>
+                      <Input type="radio" className="radio_button" /> 배송
+                    </Label>
+                  </FormGroup>
+                  <FormGroup check inline>
+                    <Label check>
+                      <Input type="radio" className="radio_button" /> 픽업
+                    </Label>
+                  </FormGroup>
+                </Form>
+                <Form style={{ margin: "10px" }}>
+                  <FormGroup check inline>
+                    <Label check>
+                      <Input type="checkbox" className="checkbox" />미접수
+                    </Label>
+                  </FormGroup>
+                  <FormGroup check inline>
+                    <Label check>
+                      <Input type="checkbox" className="checkbox" /> 거부
+                    </Label>
+                  </FormGroup>
+                </Form>
+
+                <div style={{ margin: "10px" }}>
+                  {'(총 5 / 100 개)'}
+                </div>
+
+                <OrderTableView
+                  rowData={orderDemoData} />
+                <Row style={{ margin: "0px" }}>
+                  <Button style={{ width: "123px" }} outline color="dark">전체선택</Button>
+                  <Button style={{ width: "123px", marginLeft: "10px" }} outline color="dark">선택삭제</Button>
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  <ButtonGroup size="sm">
+                    <Button className="pagination_sel" color="">1</Button>
+                    <Button className="pagination" color="">2</Button>
+                    <Button className="pagination" color="">3</Button>
+                    <Button className="pagination" color="">4</Button>
+                    <Button className="pagination" color="">5</Button>
+                  </ButtonGroup>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+        </div>
+      }
+      {category === 1 &&
+
+        <Row style={{ padding: "0 15px 0 15px", color:"#dadada" }}>
+          <Col style={{ padding: "15% 0 15% 0", backgroundColor: "white",}}>
+            <Row className="align-items-center justify-content-center" style={{ fontSize: "3rem", padding: "10px 0" }}>
+              <strong>To Be Continue...</strong>
+            </Row>
+            <Row className="can-click align-items-center justify-content-center" style={{ fontSize: "18px", color: "##6F7070", padding: "10px 0" }} onClick={() => history.goBack()}>
+              <Button to="/product" color="white">이전으로 돌아가기</Button>
+            </Row>
+          </Col>
         </Row>
 
-      </div>
-      <Row>
-        <Col>
-          <div style={{ padding: "20px", backgroundColor: "white" }}>
-            <Form style={{ margin: "10px" }}>
-              <FormGroup check inline>
-                <Label check>
-                  <Input type="radio" className="radio_button" />전체
-                </Label>
-              </FormGroup>
-              <FormGroup check inline>
-                <Label check>
-                  <Input type="radio" className="radio_button" /> 배송
-                </Label>
-              </FormGroup>
-              <FormGroup check inline>
-                <Label check>
-                  <Input type="radio" className="radio_button" /> 픽업
-                </Label>
-              </FormGroup>
-            </Form>
-            <Form style={{ margin: "10px" }}>
-              <FormGroup check inline>
-                <Label check>
-                  <Input type="checkbox" className="checkbox" />미접수
-                </Label>
-              </FormGroup>
-              <FormGroup check inline>
-                <Label check>
-                  <Input type="checkbox" className="checkbox" /> 거부
-                </Label>
-              </FormGroup>
-            </Form>
 
-            <div style={{ margin: "10px" }}>
-              {'(총 5 / 100 개)'}
-            </div>
-
-            <OrderTableView
-              rowData={orderDemoData} />
-            <Row style={{ margin: "0px" }}>
-              <Button style={{ width: "123px"}} outline color="dark">전체선택</Button>
-              <Button style={{ width: "123px", marginLeft: "10px" }} outline color="dark">선택삭제</Button>
-            </Row>
-            <Row className="align-items-center justify-content-center">
-            <ButtonGroup size="sm">
-                <Button className="pagination_sel" color="">1</Button>
-                <Button className="pagination" color="">2</Button>
-                <Button className="pagination" color="">3</Button>
-                <Button className="pagination" color="">4</Button>
-                <Button className="pagination" color="">5</Button>
-            </ButtonGroup>
-            </Row>
-          </div>
-        </Col>
-      </Row>
+      }
     </Page>
   );
 };

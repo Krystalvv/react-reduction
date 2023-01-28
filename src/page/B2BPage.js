@@ -26,7 +26,10 @@ import {
 } from 'demos/dashboardPage';
 import Combobox from '../components/Part/ComboBox';
 
+import { useHistory } from 'react-router-dom';
+
 const B2BPage = () => {
+  const history = useHistory();
   const searchDate = ['주문 접수 일', '예약일'];
   const categoryDep1 = ['꽃', '식물'];
   const categoryDep2 = ['전체', '꽃다발', '꽃바구니', '화분'];
@@ -76,6 +79,7 @@ const B2BPage = () => {
       </div>
 
       {/* filter */}
+      {/* <div>
       <div style={{ padding: "0 20px", backgroundColor: "white" }}>
         <Col style={{ padding: "10px", borderTop: "1px solid #8f8f8f", borderBottom: "1px solid #8f8f8f" }}>
           <Row className="align-items-center" style={{ margin: "0px" }}>
@@ -181,6 +185,18 @@ const B2BPage = () => {
           </div>
         </Col>
       </Row>
+      </div> */}
+
+      <Row style={{ padding: "0 15px 0 15px", color:"#dadada" }}>
+          <Col style={{ padding: "15% 0 15% 0", backgroundColor: "white",}}>
+            <Row className="align-items-center justify-content-center" style={{ fontSize: "3rem", padding: "10px 0" }}>
+              <strong>To Be Continue...</strong>
+            </Row>
+            <Row className="can-click align-items-center justify-content-center" style={{ fontSize: "18px", color: "##6F7070", padding: "10px 0" }} onClick={() => history.goBack()}>
+              <Button to="/product" color="white">이전으로 돌아가기</Button>
+            </Row>
+          </Col>
+        </Row>
     </Page>
   );
 };
