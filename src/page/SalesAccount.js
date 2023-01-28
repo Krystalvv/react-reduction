@@ -10,11 +10,14 @@ import {
 } from 'reactstrap';
 
 import { salesData } from '../demos/dashboardPage';
+import { useHistory } from 'react-router-dom';
 
 import SalesTableView from '../components/SalesTableView';
 import SearchInput from '../components/SearchInput';
 
 const SalesAccount = () => {
+  const history = useHistory();
+
   function getCount(filter, item, filter1, item1) {
     let count = 0;
     {
@@ -33,6 +36,9 @@ const SalesAccount = () => {
   return (
     <div>
       <div style={{ padding: "20px", backgroundColor: "white" }}>
+      <Button style={{ width: "123px", marginLeft: "auto", marginTop:"-100px" }} color="dark"
+      onClick={() => history.push('/account')}
+      >등록하기</Button>
         <div style={{ margin: "5px" }}>
           <strong style={{ fontSize: "1.2rem", }}>상세내역</strong>
           <Row className="justify-content-between align-items-center" style={{ margin: "0px" }}>
