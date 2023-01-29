@@ -9,14 +9,22 @@ import {
   Label,
 } from 'reactstrap';
 
-import { salesData } from '../demos/dashboardPage';
+import { salesData } from '../../demos/dashboardPage';
 import { useHistory } from 'react-router-dom';
 
-import SalesTableView from '../components/SalesTableView';
-import SearchInput from '../components/SearchInput';
+import SalesTableView from '../../components/SalesTableView';
+import SearchInput from '../../components/SearchInput';
+import Page from '../../components/Page';
+import { sales_url } from '../../common';
+import Combobox from '../../components/Part/ComboBox';
+import { MdAddCircle } from 'react-icons/md';
 
 const SalesAccount = () => {
   const history = useHistory();
+
+  const refresh = () => {
+    console.log("refresh")
+  }
 
   function getCount(filter, item, filter1, item1) {
     let count = 0;
@@ -33,12 +41,68 @@ const SalesAccount = () => {
     setType(name)
   };
 
+  const searchDate = ['일별 매출', '주별 매출', '월별 매출', '구간별 매출']; // date range
+
+  // state
+  // const [graph, setGraph] = useState(window.location.href.split('/')[window.location.href.split('/').length - 1]);
+  const [graph, setGraph] = useState(localStorage.getItem('graphIndex'));
+
+  // change graph date range
+  const currentItem = (x) => {
+    let val;
+    switch (x) {
+      case '일별 매출':
+        val = 0; break;
+      case '주별 매출':
+        val = 1; break;
+      case '월별 매출':
+        val = 2; break;
+      default:
+        val = 3; break;
+    }
+    setGraph(val);
+    localStorage.setItem('graphIndex', val);
+  };
+
   return (
-    <div>
+    <Page category_buttons={sales_url}>
+      {/* 필터 */}
+      <div className='sales_container'>
+        <Row className='sales_row_right'>
+          <Combobox items={searchDate} currentItem={currentItem} index={graph} />
+          <Input
+            className="sales_input"
+            type="date"
+            name="date"
+            id="exampleDate"
+            placeholder="date placeholder"
+            style={{ visibility: graph !== 3 ? "visible" : "hidden" }}
+          />
+        </Row>
+        {graph === 3 &&
+          <Row className="sales_row_right">
+            <Input
+              className="sales_input"
+              type="date"
+              name="date"
+              id="exampleDate"
+              placeholder="date placeholder"
+            />
+            -
+            <Input
+              className="sales_input"
+              type="date"
+              name="date"
+              id="exampleDate"
+              placeholder="date placeholder"
+            />
+          </Row>
+        }
+      </div>
       <div style={{ padding: "20px", backgroundColor: "white" }}>
-      <Button style={{ width: "123px", marginLeft: "auto", marginTop:"-100px" }} color="dark"
-      onClick={() => history.push('/account')}
-      >등록하기</Button>
+        <div className="can-click" style={{ fontSize: "18px", fontWeight: "bold" }} onClick={() => history.push('/account')}>
+          <MdAddCircle size={20} />&nbsp; 등록하기
+          </div>
         <div style={{ margin: "5px" }}>
           <strong style={{ fontSize: "1.2rem", }}>상세내역</strong>
           <Row className="justify-content-between align-items-center" style={{ margin: "0px" }}>
@@ -81,7 +145,7 @@ const SalesAccount = () => {
           </ButtonGroup>
         </Row>
       </div>
-    </div>
+    </Page>
   );
 };
 

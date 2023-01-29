@@ -14,13 +14,39 @@ import {
 } from 'demos/dashboardPage';
 
 import { useHistory } from 'react-router-dom';
-import SalesTableView from '../components/SalesTableView';
-import SearchInput from '../components/SearchInput';
+import Page from '../../components/Page';
+import SalesTableView from '../../components/SalesTableView';
+import SearchInput from '../../components/SearchInput';
+import { sales_url } from '../../common';
+import Combobox from '../../components/Part/ComboBox';
 
 const SalesFlit = () => {
   const history = useHistory();
   const [sales, popupSales] = useState(false);
   const [purchase, popupPurchase] = useState(false);
+
+  const searchDate = ['일별 매출', '주별 매출', '월별 매출', '구간별 매출']; // date range
+
+  // state
+  // const [graph, setGraph] = useState(window.location.href.split('/')[window.location.href.split('/').length - 1]);
+  const [graph, setGraph] = useState(localStorage.getItem('graphIndex'));
+
+  // change graph date range
+  const currentItem = (x) => {
+    let val;
+    switch (x) {
+      case '일별 매출':
+        val = 0; break;
+      case '주별 매출':
+        val = 1; break;
+      case '월별 매출':
+        val = 2; break;
+      default:
+        val = 3; break;
+    }
+    setGraph(val);
+    localStorage.setItem('graphIndex', val);
+  };
 
   function getCount(filter, item, filter1, item1) {
     let count = 0;
@@ -38,7 +64,41 @@ const SalesFlit = () => {
   };
 
   return (
-    <div>
+    <Page category_buttons={sales_url}>
+            {/* 필터 */}
+            <div className='sales_container'>
+        <Row className='sales_row_right'>
+          <Combobox items={searchDate} currentItem={currentItem} index={graph} />
+          <Input
+            className="sales_input"
+            type="date"
+            name="date"
+            id="exampleDate"
+            placeholder="date placeholder"
+            style={{ visibility: graph !== 3 ? "visible" : "hidden" }}
+          />
+        </Row>
+        {graph === 3 &&
+          <Row className="sales_row_right">
+            <Input
+              className="sales_input"
+              type="date"
+              name="date"
+              id="exampleDate"
+              placeholder="date placeholder"
+            />
+            -
+            <Input
+              className="sales_input"
+              type="date"
+              name="date"
+              id="exampleDate"
+              placeholder="date placeholder"
+            />
+          </Row>
+        }
+      </div>
+
       <div style={{ padding: "20px", backgroundColor: "white" }}>
         <div style={{ margin: "5px" }}>
           <strong style={{ fontSize: "1.2rem", }}>상세내역</strong>
@@ -85,7 +145,7 @@ const SalesFlit = () => {
           </ButtonGroup>
         </Row>
       </div>
-    </div>
+    </Page>
   );
 };
 
